@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="977.0" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaGerenciarPermissoesFuncionariosController">
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10px;" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <left>
+                  <GridPane maxHeight="680.0" prefHeight="603.0" prefWidth="397.0" styleClass="gridfundo" stylesheets="@../style/TelaGerenciarFuncionario.css" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="264.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="51.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="67.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="34.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ComboBox fx:id="comboBoxNivelAcesso" prefHeight="33.0" prefWidth="243.0" promptText="Nível de acesso *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionarioComboBox.css" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="200.0" right="5.0" top="3.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="-10.0" />
+                           </padding>
+                        </ComboBox>
+                        <ComboBox fx:id="comboBoxFuncionario" prefHeight="36.0" prefWidth="190.0" promptText="Funcionario *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionarioComboBox.css" GridPane.rowIndex="4">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="-10.0" />
+                           </padding>
+                        </ComboBox>
+                        <JFXTextField fx:id="campoEmail" focusColor="WHITE" promptText="E-mail *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionario.css" unFocusColor="#ffffffc7" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextArea fx:id="textAreaInformacao" focusColor="#fcf0f0" prefHeight="127.0" prefWidth="366.0" promptText="Informações adicionais" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionario.css" unFocusColor="#fcf0f0" GridPane.rowIndex="16">
+                           <GridPane.margin>
+                              <Insets bottom="50.0" left="5.0" right="5.0" top="8.0" />
+                           </GridPane.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </JFXTextArea>
+                        <JFXButton fx:id="btnNovo" buttonType="RAISED" onAction="#btnNovo" prefHeight="40.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Novo    " textFill="#3b3636d1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="22.0" left="5.0" />
+                           </GridPane.margin>
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                                 <image>
+                                    <Image url="@../img/TelaPrincipal/novo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXTextField cacheShape="false" centerShape="false" editable="false" focusColor="#ececec" focusTraversable="false" pickOnBounds="false" promptText="Nome" scaleShape="false" styleClass="titulo" stylesheets="@../style/TelaGerenciarFuncionario.css" text="                     PERMISSÕES" unFocusColor="#ececec" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </GridPane.margin></JFXTextField>
+                        <JFXButton fx:id="btnExcluir" buttonType="RAISED" onAction="#btnExcluir" prefHeight="25.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Excluir " textFill="#3b3636d1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="22.0" left="250.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/TelaPrincipal/remover.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnSalvar" buttonType="RAISED" layoutX="30.0" layoutY="33.0" onAction="#btnSalvar" prefHeight="40.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Salvar   " textFill="#3b3636d1" GridPane.rowIndex="1">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                                 <image>
+                                    <Image url="@../img/TelaPrincipal/salvar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <GridPane.margin>
+                              <Insets bottom="22.0" left="130.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXToggleButton fx:id="tbGerenciarClientes" text=" " GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Clientes" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarFuncionarios" text=" " GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="170.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G.  Funcionários" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="230.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarOrgao" text=" " GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Caixa" GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarProdutos" text=" " GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="170.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Fornecedores" GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets left="230.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label styleClass="formata-campo" text="G. Fidelização" GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarCaixa" text=" " GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Compra" GridPane.rowIndex="12">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarFidelizacao" text=" " GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Licenças/Autorizações" GridPane.rowIndex="13">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarCombustiveis" text=" " GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets left="170.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <JFXToggleButton fx:id="tbGerenciarFornecedores" text=" " GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets left="170.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <JFXToggleButton fx:id="tbGerenciarVenda" text=" " GridPane.rowIndex="12">
+                           <GridPane.margin>
+                              <Insets left="170.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Órgão gov." GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label styleClass="formata-campo" text="G. Produtos" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="230.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label styleClass="formata-campo" text="G. Combustíveis" GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets left="230.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarCompra" text=" " GridPane.rowIndex="12">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Venda" GridPane.rowIndex="12">
+                           <GridPane.margin>
+                              <Insets left="230.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXToggleButton fx:id="tbGerenciarAutorizacoes" text=" " GridPane.rowIndex="13">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <JFXToggleButton fx:id="tbGerenciarPermissoes" text=" " GridPane.rowIndex="14">
+                           <GridPane.margin>
+                              <Insets left="-10.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <Label styleClass="formata-campo" text="G. Permissões" GridPane.rowIndex="14">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXPasswordField fx:id="campoSenha" focusColor="#fcfcfc" promptText="Senha *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionario.css" unFocusColor="WHITE" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" top="15.0" />
+                           </GridPane.margin>
+                        </JFXPasswordField>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </GridPane>
+               </left>
+               <center>
+                  <BorderPane fx:id="borderPaneTabela" maxHeight="680.0" prefHeight="645.0" prefWidth="528.0" style="-fx-background-color: #F3f3f3;" BorderPane.alignment="CENTER">
+                     <top>
+                        <GridPane prefHeight="51.0" prefWidth="540.0" stylesheets="@../style/TelaGerenciarFuncionario.css" BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="campoPesquisar" focusColor="#f3f3f3" promptText="Pesquisar..." styleClass="campoPesquisar" unFocusColor="#f3f3f3">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="50.0" right="18.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <image>
+                                    <Image url="@../img/TelaPrincipal/search.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                     </top>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </BorderPane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+   <left>
+      <StackPane prefHeight="640.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <StackPane prefHeight="150.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+   </right>
+   <stylesheets>
+      <URL value="@../style/TelaGerenciarFuncionario.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

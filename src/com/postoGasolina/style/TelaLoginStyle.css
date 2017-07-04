@@ -1,0 +1,141 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+@font-face {
+    src: url('../fonts/NB-National-Std-Bold.ttf');
+}
+@font-face {
+	src: url('../fonts/edosz.ttf');
+}
+@font-face {
+	src: url('../fonts/QuickCaps.otf');
+}
+@font-face {
+	src: url('../fonts/CapitalDryBrush.ttf');
+}
+@font-face {
+	src: url('../fonts/Lineat.otf');
+}
+.vbox-center{
+	
+	
+	
+	-fx-background-color: rgba(255.0,255.0,255.0,0.15);
+	-fx-background-radius: 4.0px;
+	-fx-border-color:rgba(255.0,255.0,255.0,0.15);
+	-fx-border-radius: 4.0px;
+	  
+	-fx-border-color: rgba(255.0,255.0,255.0,0.15);
+    -fx-border-insets: 1.0;
+    -fx-border-width: 2.0;
+    -fx-border-style:none;
+	   
+}
+.borderPanePrincipal-left{
+	-fx-background-color: rgba(0,0,0,0.6);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 10, 0, 0, 0);
+	
+}
+
+.borderPanePrincipal{
+	
+	
+	/*-fx-background-color: linear-gradient(to bottom, #A8BFFF 0%, #884D80 100%);*/
+	-fx-background-image: url(/com/postoGasolina/img/TelaLogin/bg5.jpg); 
+	
+	
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: stretch;
+	
+	
+	-fx-border-color: rgba(255.0,255.0,255.0,0.15);
+    -fx-border-insets: 0.0;
+    -fx-border-width: 0.1;
+    -fx-border-style:none;
+}
+.vboxLogin{
+	
+	/*-fx-background-color: radial-gradient(at top, #5e1d1d, #25171f, #14151f);
+	 * 
+	 -fx-border-color: rgba(255.0,255.0,255.0,0.15);
+    -fx-border-insets: 0.0;
+    -fx-border-width: 3.0;
+    -fx-border-style:none;
+	 * 
+	 * 
+	 * */
+	
+	
+}
+.vboxPaneEmailPassword{
+	
+	-fx-background-color: rgba(45.0,45.0,45.0,0.15);
+	-fx-background-radius: 50.0px;
+	-fx-border-color:rgba(255.0,255.0,255.0,0.15);
+	-fx-border-radius: 50.0px;
+	  
+	-fx-border-color: rgba(255.0,255.0,255.0,0.15);
+    -fx-border-insets: 1.0;
+    -fx-border-width: 1.0;
+    -fx-border-style:none;
+	   
+}
+.vboxCampoEmail{
+		
+}
+.vboxCampoEmail-left{
+	
+}
+.btn-social{
+	-fx-background-color: transparent;
+	-fx-background-radius: 50.0px;
+
+}
+.btnEntrar{
+	-fx-background-color: linear-gradient(to top, #bdc2e8 0.0%, #bdc2e8 1.0%, #e6dee9 100.0%);
+	-fx-background-radius: 50.0px;
+	-fx-font-family: NB-Bolt;
+	-fx-font-size: 20.0;
+
+}
+.stackVideoBackground{
+	
+	-fx-background-image: url(/com/postoGasolina/img/TelaLogin/backVideo.png);
+	-fx-background-size: auto 75.0%;
+	-fx-background-position: left ;
+	-fx-background-repeat:no-repeat;
+	
+}
+.campoEmailSenha{
+	-fx-text-fill: linear-gradient(to top, #bdc2e8 0.0%, #bdc2e8 1.0%, #e6dee9 100.0%);
+}
+.textoLogo{
+	-fx-font-family: "Lineat";
+	-fx-font-size: 39;
+	-fx-text-fill:  linear-gradient(to top, #dfe9f3 0%, white 100%);
+	-fx-text-fill: linear-gradient(to left, #93a5cf 0%, #e4efe9 100%);
+}
+.texto-vbox-login{
+	-fx-font-family: "Edo SZ";
+	-fx-font-weight: bold;
+	-fx-font-size: 16;
+	-fx-text-fill:  linear-gradient(to top, #dfe9f3 0%, white 100%);
+	-fx-text-fill: linear-gradient(to left, #93a5cf 0%, #e4efe9 100%);
+}
+.titulo{
+	-fx-font-family: "Capital Dry Brush";
+	-fx-font-size: 17;
+	-fx-text-fill:  linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+.Texto{
+	
+	-fx-font-family: "Capital Dry Brush";
+	-fx-font-size: 19;
+	-fx-text-fill:  linear-gradient(to top, #dfe9f3 0%, white 100%);
+	
+}
+.nomeProduto{
+	
+	-fx-font-size: 30;
+	-fx-text-fill:  linear-gradient(to top, #dfe9f3 0%, white 100%);
+}

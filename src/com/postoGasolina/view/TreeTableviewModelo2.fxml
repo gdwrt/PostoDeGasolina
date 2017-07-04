@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+
+
+<JFXTreeTableView fx:id="treeTableViewTipoCombustivel" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/TreeTableViewStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" />

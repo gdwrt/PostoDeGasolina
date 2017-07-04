@@ -1,0 +1,176 @@
+
+
+@font-face {
+    src: url('../fonts/NB-National-Std-Bold.ttf');
+}
+@font-face {
+    src: url('../fonts/edosz.ttf');
+}
+@font-face {
+    src: url('../fonts/RainDay.otf');
+}
+@font-face {
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+    src: url('../fonts/DroidSerifPro.otf');
+}
+@font-face {
+    src: url('../fonts/DroidSerifPro-BoldItalic.otf');
+}
+@font-face{
+	src: url('../fonts/MontserratAlternates-Regular.otf');
+}
+
+.fundo{
+	
+	-fx-background-color: #fff;
+	-fx-border-color: #ececec;
+	-fx-border-width: 1px;
+	-fx-background-radius: 4px 3px;
+	-fx-border-radius: 4px 3px;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 2, 0, 0, 0);
+	
+	
+}
+.fundoGridPane{
+	-fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/red-bg.png);
+	
+}
+.fundo2{
+	-fx-background-color:rgba(0, 0, 0, 0.07);
+	
+}
+.Texto{
+	-fx-font-family: "Nb National Std";
+	-fx-font-size: 9;
+	-fx-text-fill: rgb(255,255,255);
+	-fx-font-weight: bold;
+	
+}
+.fundoTop{
+	/*-fx-background-color: linear-gradient(to right, #A8BFFF 0%, #884D80 100%);
+	-fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/g.jpg);*/
+	-fx-background-color: #191919;
+}
+.fontTexto{
+	
+    -fx-text-fill:#0e377d;
+    -fx-font-weight: 700;
+    -fx-opacity: 0.7;
+}
+
+
+.formata-campo{
+	-fx-font-family: "Roboto";
+	-fx-font-size: 15px;
+	-fx-text-fill: white;
+	-fx-prompt-text-fill:white;
+	
+}
+.formata-campo:focused{
+	 -fx-prompt-text-fill: transparent ;
+}
+.formata-campo .jfx-text-field {
+    -fx-prompt-text-fill: white;
+}
+.formata-campo .jfx-text-field:focused {
+    -fx-prompt-text-fill: transparent ;
+    
+}
+.formata-campo .date-picker-popup > .month-year-pane {
+    -fx-padding: 0.588883em 0.5em 0.666667em 0.5em; /* 7 6 8 6 */
+ 	-fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/fundogrid4.jpg);
+    -fx-background-insets: 0 0 0 0, 0 0 1 0;
+}
+.formata-campo .date-picker-popup {
+     -fx-background-color:#f3f3f3;
+     
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0;
+    -fx-alignment: CENTER; /* VBox */
+    -fx-spacing: 0; /* VBox */
+    -fx-padding: 0.083333em; /* 1 1 1 1 */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.2) , 12, 0.0 , 0 , 8 );
+    
+    -fx-opacity: 0.95;
+}
+.formata-campo .date-picker-popup > * > .spinner > .label {
+    -fx-alignment: CENTER;
+}
+.formata-campo .date-picker-popup > * > .spinner {
+    -fx-spacing: 0.25em; /* 3 */
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-fill-height: false;
+    -fx-background-color: transparent;
+}
+.jfx-date-picker .input-line {
+    -fx-background-color: white;
+    -fx-text-fill: white;
+}
+.jfx-date-picker .input-focused-line {
+    -fx-background-color: white;
+    -fx-text-fill: white;
+}
+.jfx-date-picker {
+    -fx-text-inner-color: white;
+}
+
+.jfx-date-picker .day-cell {
+    -fx-text-fill: #333;
+}
+
+.jfx-date-picker .today{
+    -fx-text-fill: red;
+}
+
+
+
+
+
+.titulo{
+	-fx-font-family: "Droid Serif Pro";
+	-fx-font-size: 15px;
+	-fx-text-fill:#fff;
+	-fx-font-weight: bold;
+	
+}
+.bgTop{
+	-fx-background-color: #f0f0f0;
+	-fx-border-color: #ececec;
+	-fx-border-width: 1px;
+	
+}
+.bgForm{
+	-fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/5.png);
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: cover;
+	-fx-background-position: center;
+	
+	
+}
+
+.myButton {
+	-fx-font-family: "Montserrat Alternates";
+	-fx-font-size: 19px;
+	-fx-background-color: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	-fx-background-radius: 50px;
+	-fx-border-radius: 50px;
+	-fx-cursor: pointer;
+	-fx-font-weight: 700;
+	-fx-text-fill: white;
+	-fx-border-color: #4e6096;
+	
+}
+.myButton:hover {
+	-fx-background-color: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+}
+.campoPesquisar{
+	-fx-text-fill:#95A5A6;
+}
+.gridfundo{
+	-fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/fundogrid4.jpg);
+	
+	
+}

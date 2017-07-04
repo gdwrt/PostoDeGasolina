@@ -1,0 +1,23 @@
+  
+
+.tab .tab-label { 
+-fx-background-color:  linear-gradient(to right, #fdfbfb 0%, #ebedee 100%);
+-fx-text-fill: #333;
+-fx-opacity: 0.8;
+}
+
+.tab:selected .tab-label { 
+	
+    -fx-alignment: CENTER;
+    -fx-text-fill: #333;
+    -fx-opacity: 0.8;
+}
+
+.jfx-tab-pane .tab-header-area .tab-header-background{
+-fx-background-color:  linear-gradient(to right, #fdfbfb 0%, #ebedee 100%);
+-fx-text-fill: #333;
+}
+
+
+
+

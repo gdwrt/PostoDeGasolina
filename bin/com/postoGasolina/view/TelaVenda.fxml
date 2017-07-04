@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="680.0" minWidth="977.0" onMouseEntered="#testando" prefHeight="680.0" prefWidth="977.0" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaVendaController">
+   <center>
+      <BorderPane maxHeight="640.0" maxWidth="940.0" minHeight="640.0" minWidth="940.0" prefHeight="640.0" prefWidth="940.0" style="-fx-background-radius: 10px;" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%);" styleClass="fundoBorderPane" stylesheets="@../style/TelaVenda.css" BorderPane.alignment="CENTER">
+               <top>
+                  <GridPane fx:id="gridPaneTop" prefHeight="132.0" prefWidth="940.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="570.0" minWidth="10.0" prefWidth="438.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="580.0" minWidth="10.0" prefWidth="499.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="btnCliente" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#adicionarCliente" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../img/TelaVenda/contact-new.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <JFXTextField cacheShape="false" centerShape="false" editable="false" focusColor="#ececec" focusTraversable="false" pickOnBounds="false" promptText="Nome" scaleShape="false" styleClass="titulo" stylesheets="@../style/TelaGerenciarFuncionario.css" text="                                                                                          VENDA" unFocusColor="#ececec" visible="false" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="-397.0" right="140.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXButton fx:id="btnAdicionar" buttonType="RAISED" focusTraversable="false" onAction="#btnAdicionar" prefHeight="32.0" prefWidth="115.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Adicionar" textFill="#3b3636d1" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="375.0" top="10.0" />
+                           </GridPane.margin>
+                           <graphic>
+                              <ImageView fx:id="imageAdicionar" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/TelaVenda/fundo2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label text="Cliente" textFill="#f3f3f3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="32.0" left="48.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Funcionario que efetuou a venda *" textFill="#f3f3f3" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="32.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Produto *" textFill="#f3f3f3" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="32.0" left="48.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXButton fx:id="btnAdicionar1" buttonType="RAISED" focusTraversable="false" onAction="#btnNovo" prefHeight="32.0" prefWidth="115.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Novo     " textFill="#3b3636d1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="imageAdicionar1" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/TelaVenda/document_add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="375.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXTextField cacheShape="false" centerShape="false" editable="false" focusColor="#ececec" focusTraversable="false" pickOnBounds="false" promptText="Nome" scaleShape="false" styleClass="titulo" stylesheets="@../style/TelaGerenciarFuncionario.css" text="                                                                                           Tela Venda" unFocusColor="#ececec">
+                           <GridPane.margin>
+                              <Insets left="50.0" right="-365.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                     </children>
+                  </GridPane>
+               </top>
+               <right>
+                  <BorderPane fx:id="borderPaneTabela" maxHeight="680.0" minWidth="953.0" prefWidth="940.0" style="-fx-background-color: #F3f3f3;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="20.0" />
+                     </BorderPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <bottom>
+                        <GridPane fx:id="gridPaneBottom" gridLinesVisible="true" prefHeight="124.0" prefWidth="953.0" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%);" stylesheets="@../style/gridPane.css" BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="429.0" minWidth="10.0" prefWidth="429.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="269.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="255.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Total da venda" textFill="#222324d1" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="80.0" left="80.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Desconto" textFill="#222324d1" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="80.0" left="99.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <ImageView fx:id="btnExcluir" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#BtnExcluirMouseClicked" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/TelaPrincipal/minus.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets left="50.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <JFXButton fx:id="btnDesconto" buttonType="RAISED" focusTraversable="false" onAction="#btnDesconto" prefHeight="41.0" prefWidth="129.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Desconto" textFill="#3b3636d1">
+                                 <graphic>
+                                    <ImageView fx:id="imageIcon" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                                       <image>
+                                          <Image url="@../img/TelaVenda/discount.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Arial Bold" size="13.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="130.0" />
+                                 </GridPane.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="btnFechamento" buttonType="RAISED" focusTraversable="false" onAction="#btnFechamento" prefHeight="41.0" prefWidth="126.0" ripplerFill="#2223240d" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Fechamento" textFill="#3b3636d1">
+                                 <graphic>
+                                    <ImageView fx:id="imageFechamento" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                                       <image>
+                                          <Image url="@../img/TelaVenda/saveCart.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Arial Bold" size="13.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="270.0" />
+                                 </GridPane.margin>
+                              </JFXButton>
+                           </children>
+                           <styleClass>
+                              <String fx:value="formata-campo" />
+                              <String fx:value="root" />
+                           </styleClass>
+                        </GridPane>
+                     </bottom>
+                  </BorderPane>
+               </right>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+   <left>
+      <StackPane prefHeight="640.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <StackPane prefHeight="640.0" prefWidth="17.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <StackPane prefHeight="20.0" prefWidth="977.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </StackPane>
+   </bottom>
+   <top>
+      <StackPane prefHeight="20.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </top>
+   <stylesheets>
+      <URL value="@../style/TelaGerenciarFuncionario.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="977.0" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaGerenciarCombustivelController">
+   <center>
+      <BorderPane maxHeight="690.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../style/TelaVenda.css" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane maxHeight="660.0" maxWidth="937.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <GridPane fx:id="gridPaneTop" prefHeight="124.0" prefWidth="937.0" styleClass="fundoBorderPane" stylesheets="@../style/TelaVenda.css" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="570.0" minWidth="10.0" prefWidth="438.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="580.0" minWidth="10.0" prefWidth="499.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ComboBox fx:id="comboBoxBomba" prefHeight="44.0" prefWidth="431.0" promptText="Bomba *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionarioComboBox.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="100.0" right="260.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="-6.0" />
+                           </padding>
+                        </ComboBox>
+                        <ComboBox fx:id="comboboxTipoCombustivel" prefHeight="44.0" prefWidth="597.0" promptText="Tipo de combustível *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionarioComboBox.css" GridPane.rowIndex="3">
+                           <padding>
+                              <Insets left="-10.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="290.0" right="-60.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <ImageView fx:id="btnTipoCombustivel" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../img/TelaPrincipal/add_orange.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="250.0" top="5.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <JFXTextField cacheShape="false" centerShape="false" editable="false" focusColor="#ececec" focusTraversable="false" pickOnBounds="false" promptText="Nome" scaleShape="false" styleClass="titulo" stylesheets="@../style/TelaGerenciarFuncionario.css" text="                       COMBUSTÍVEIS" unFocusColor="#ececec" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="7.0" left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <ComboBox fx:id="combomBoxBico" prefHeight="44.0" prefWidth="455.0" promptText="Bico *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionarioComboBox.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <padding>
+                              <Insets left="-10.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="250.0" right="120.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <JFXTextField fx:id="campoDescricao" focusColor="WHITE" prefHeight="27.0" prefWidth="118.0" promptText="Descrição *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionario.css" unFocusColor="#fffdfd" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="10.0" right="200.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <ImageView fx:id="btnBomba" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../img/TelaPrincipal/add_orange.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="65.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <JFXButton fx:id="btnNovo" buttonType="RAISED" onAction="#btnNovo" prefHeight="40.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Novo    " textFill="#3b3636d1" GridPane.rowIndex="1">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                                 <image>
+                                    <Image url="@../../../../../../../Desktop/add-file-xxl.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnExcluir" buttonType="RAISED" onAction="#btnExcluir" prefHeight="25.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Excluir " textFill="#3b3636d1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../Desktop/828109_delete_512x512.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <GridPane.margin>
+                              <Insets left="280.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnSalvar" buttonType="RAISED" onAction="#btnSalvar" prefHeight="40.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Salvar   " textFill="#3b3636d1" GridPane.rowIndex="1">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                                 <image>
+                                    <Image url="@../../../../../../../Desktop/save-512.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="155.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                     </children>
+                  </GridPane>
+               </top>
+               <center>
+                  <BorderPane fx:id="borderPaneTabela" maxHeight="680.0" prefHeight="515.0" prefWidth="937.0" style="-fx-background-color: #F3f3f3;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <top>
+                        <GridPane prefHeight="37.0" prefWidth="937.0" stylesheets="@../style/TelaGerenciarFuncionario.css" BorderPane.alignment="CENTER">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="campoPesquisar" focusColor="#f3f3f3" promptText="Pesquisar..." styleClass="campoPesquisar" unFocusColor="#f3f3f3">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="50.0" right="18.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                              <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <image>
+                                    <Image url="@../img/TelaPrincipal/search.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                     </top>
+                  </BorderPane>
+               </center>
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+   <left>
+      <StackPane prefHeight="640.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <StackPane prefHeight="150.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <StackPane prefHeight="20.0" prefWidth="977.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </StackPane>
+   </bottom>
+   <stylesheets>
+      <URL value="@../style/TelaGerenciarFuncionario.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

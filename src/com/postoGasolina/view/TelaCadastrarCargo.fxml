@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane fx:id="borderPane" minHeight="325.0" minWidth="265.0" prefHeight="341.0" prefWidth="288.0" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaCadastrarCargoController">
+   <top>
+      <GridPane prefHeight="341.0" prefWidth="285.0" styleClass="gridfundo" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="264.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXTextField fx:id="campoDescricao" focusColor="#fcf0f0" prefHeight="27.0" prefWidth="156.0" promptText="Descrição *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionario.css" unFocusColor="#fcf0f0c7" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="90.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXTextField cacheShape="false" centerShape="false" editable="false" focusColor="#ececec" focusTraversable="false" pickOnBounds="false" prefHeight="27.0" prefWidth="285.0" promptText="Nome" scaleShape="false" styleClass="titulo" stylesheets="@../style/TelaGerenciarFuncionario.css" text="                 CADASTRAR CARGO" unFocusColor="#ececec">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXListView fx:id="listViewCargo" stylesheets="@../style/listView.css" GridPane.rowIndex="2" />
+            <ImageView fx:id="btnAdcionarCargo" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../img/TelaPrincipal/add_orange.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="215.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="btnRemoverCargo" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../img/TelaPrincipal/minus.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="250.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+         <stylesheets>
+            <URL value="@../style/TelaGerenciarFuncionario.css" />
+            <URL value="@../style/SnackBar.css" />
+         </stylesheets>
+      </GridPane>
+   </top>
+   <stylesheets>
+      <URL value="@../style/TelaGerenciarFuncionario.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

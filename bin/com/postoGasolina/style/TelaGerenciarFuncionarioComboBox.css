@@ -1,0 +1,95 @@
+
+.combo-box-base {
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+	-fx-border-width: 0 0 1 0;
+	
+}
+.combo-box .text-field {
+    -fx-prompt-text-fill: white ;
+    -fx-background-color: transparent
+}
+.combo-box .text-field:focused {
+    -fx-prompt-text-fill: transparent ;
+}
+.combo-box-base .text{
+    -fx-fill:  #fff;
+    -fx-background-color: #fff;
+}
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 4 0 4 5;
+    /* No alternate highlighting */
+    -fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/fundogrid4.jpg);
+}
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background: f8f8f8;
+    -fx-background-color:f8f8f8;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background: #AEA8D3;
+    -fx-background-color: #AEA8D3;
+}
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.combo-box-popup  > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background: #AEA8D3;
+    -fx-background-color: #AEA8D3;
+    -fx-background-insets: 0, 1, 2;
+}
+.combo-box-popup > .list-view > .placeholder > .label {
+    -fx-text-fill: derive(-fx-control-inner-background,-30%);
+}
+.combo-box-popup .list-view 
+{
+ -fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/fundogrid4.jpg);
+}    
+
+
+
+
+
+
+
+
+
+
+
+
+.combo-box-base:editable .text-field {
+
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+  
+}
+
+.combo-box-base:editable .text-field:focused {
+
+     -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+    
+}
+
+.combo-box-base:editable:focused {
+
+     -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+    
+}
+
+
+/* ------- OPEN BUTTON ------- */
+.combo-box-base .arrow-button {
+    -fx-background-color: transparent;
+}
+ 
+
+ 
+ 
+ .formata-campo{
+	-fx-font-family: "Roboto";
+	-fx-font-size: 15px;
+	-fx-text-fill: white;
+	-fx-prompt-text-fill:white;
+	
+}

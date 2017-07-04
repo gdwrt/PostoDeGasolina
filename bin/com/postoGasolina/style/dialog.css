@@ -1,0 +1,8 @@
+.jfx-dialog {
+	
+	-fx-background-position: center;
+		-fx-font-family: "Garamnd premr Pro Capt";
+	-fx-font-size: 15px;
+	-fx-text-fill: white;
+	-fx-prompt-text-fill:white;
+}

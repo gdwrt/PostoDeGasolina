@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPaneTelaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1300.0" styleClass="borderPanePrincipal" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaRecuperarSenhaController">
+   <center>
+      <BorderPane fx:id="borderPaneCenter" prefHeight="680.0" prefWidth="903.0" BorderPane.alignment="CENTER">
+         <center>
+            <GridPane maxHeight="680.0" maxWidth="903.0" prefHeight="680.0" prefWidth="903.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="661.0" minWidth="10.0" prefWidth="661.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.0" minWidth="10.0" prefWidth="236.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.0" minHeight="1.0" prefHeight="1.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="100.0" top="108.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../img/TelaLogin/voltar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="150.0" top="108.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../img/TelaLogin/avancar.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="btnVoltar" onAction="#btnVoltarOnAction" prefHeight="39.0" prefWidth="39.0" text=" " GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="100.0" top="108.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnAvancar" onAction="#btnAvancarOnAction" prefHeight="39.0" prefWidth="39.0" text=" " GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="150.0" top="108.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+               </children>
+            </GridPane>
+         </center></BorderPane>
+   </center>
+   <right>
+      <BorderPane fx:id="borderPaneRight" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <center>
+            <VBox fx:id="vboxLogin" alignment="CENTER" opacity="0.89" prefWidth="350.0" styleClass="vboxLogin" stylesheets="@../style/TelaLoginStyle.css" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane prefHeight="590.0" prefWidth="350.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="356.0" minWidth="10.0" prefWidth="356.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="0.0" prefWidth="0.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="197.0" minHeight="10.0" prefHeight="141.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="94.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="65.0" minHeight="5.0" prefHeight="11.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="121.0" minHeight="6.0" prefHeight="84.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="logoPosto" fitHeight="134.0" fitWidth="134.0" opacity="0.88" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                           <image>
+                              <Image url="@../img/TelaLogin/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="vboxPaneEmailPassword" stylesheets="@../style/TelaLoginStyle.css" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </GridPane.margin>
+                           <children>
+                              <HBox prefHeight="48.0" prefWidth="308.0">
+                                 <children>
+                                    <ImageView fitHeight="28.0" fitWidth="27.0" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/TelaLogin/users.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <JFXTextField fx:id="campoEmail" focusColor="#ffffff00" layoutX="51.0" layoutY="10.0" prefHeight="25.0" prefWidth="227.0" promptText="Insira E-mail" styleClass="campoEmailSenha" stylesheets="@../style/TelaLoginStyle.css" unFocusColor="#4d4d4d00">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </Pane>
+                        <JFXButton fx:id="btnRecuperar" buttonType="RAISED" onAction="#onActionBtnRecuperar" prefHeight="39.0" prefWidth="223.0" ripplerFill="WHITE" styleClass="btnEntrar" text="RECUPERAR" textFill="#2f2f2ffa" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets bottom="60.0" left="70.0" right="30.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="NB National Std Regular Webfont" size="47.0" />
+                           </font>
+                        </JFXButton>
+                        <Hyperlink fx:id="linkVoltar" alignment="CENTER_RIGHT" focusTraversable="false" style="-fx-text-fill: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);;" text="Voltar" textFill="#00000055" underline="true" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets bottom="60.0" left="160.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Hyperlink>
+                        <Label prefHeight="75.0" prefWidth="157.0" styleClass="textoLogo" stylesheets="@../style/TelaLoginStyle.css" text="FSM" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Edo SZ" size="15.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="338.0" styleClass="texto-vbox-login" stylesheets="@../style/TelaLoginStyle.css" text="FUEL STATION MANAGER" textAlignment="JUSTIFY" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="15.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="85.0" />
+                           </padding>
+                        </Label>
+                        <Label prefHeight="20.0" prefWidth="298.0" styleClass="texto-vbox-login" text="GERENCIADOR DE POSTOS DE COMBUSTÍVEIS" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets bottom="3.0" left="39.0" top="35.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <ImageView fx:id="imgLoad" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="170.0" top="30.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </right>
+   <left>
+      <StackPane prefHeight="619.0" prefWidth="47.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-snapchat.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-twitter.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="85.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-instagram.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="175.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-facebook.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets top="85.0" />
+               </StackPane.margin>
+            </ImageView>
+            <JFXButton fx:id="btnSnapChat" focusTraversable="false" onAction="#btnSnapChatOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" " />
+            <JFXButton fx:id="btnFaceboook" focusTraversable="false" onAction="#btnFacebookOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" ">
+               <StackPane.margin>
+                  <Insets top="85.0" />
+               </StackPane.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnTwitter" focusTraversable="false" onAction="#btntwitterOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" ">
+               <StackPane.margin>
+                  <Insets bottom="85.0" />
+               </StackPane.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnInstagram" focusTraversable="false" onAction="#btnInstagramOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" ">
+               <StackPane.margin>
+                  <Insets bottom="175.0" />
+               </StackPane.margin>
+            </JFXButton>
+         </children>
+      </StackPane>
+   </left>
+   <stylesheets>
+      <URL value="@../style/TelaLoginStyle.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPaneTelaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1300.0" styleClass="borderPanePrincipal" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaPrincipalController">
+   <right>
+      <BorderPane fx:id="borderPaneRight" maxHeight="680.0" prefHeight="680.0" prefWidth="276.0" BorderPane.alignment="CENTER">
+         <top>
+            <GridPane prefHeight="0.0" prefWidth="276.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.0" minWidth="10.0" prefWidth="313.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="0.0" prefWidth="0.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="136.0" minHeight="0.0" prefHeight="109.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label styleClass="textoLogo" stylesheets="@../style/TelaLoginStyle.css" text="FSM" textFill="WHITE">
+                     <font>
+                        <Font name="Edo SZ" size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="65.0" top="220.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+         </top>
+         <left>
+            <GridPane fx:id="gridPaneCenter" prefHeight="680.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </left>
+         <center>
+            <VBox fx:id="vboxRight" prefHeight="680.0" prefWidth="260.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </right>
+   <left>
+      <StackPane prefHeight="619.0" prefWidth="47.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-snapchat.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-twitter.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="85.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-instagram.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="175.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TelaLogin/social-facebook.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets top="85.0" />
+               </StackPane.margin>
+            </ImageView>
+            <JFXButton fx:id="btnSnapChat" focusTraversable="false" onAction="#btnSnapChatOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" " />
+            <JFXButton fx:id="btnFaceboook" focusTraversable="false" onAction="#btnFacebookOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" ">
+               <StackPane.margin>
+                  <Insets top="85.0" />
+               </StackPane.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnTwitter" focusTraversable="false" onAction="#btntwitterOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" ">
+               <StackPane.margin>
+                  <Insets bottom="85.0" />
+               </StackPane.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnInstagram" focusTraversable="false" onAction="#btnInstagramOnAction" prefHeight="39.0" prefWidth="39.0" styleClass="btn-social" text=" ">
+               <StackPane.margin>
+                  <Insets bottom="175.0" />
+               </StackPane.margin>
+            </JFXButton>
+         </children>
+      </StackPane>
+   </left>
+   <center>
+      <StackPane fx:id="stack" prefHeight="150.0" prefWidth="200.0" stylesheets="@../style/dialog.css" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane fx:id="borderPaneCenter" prefHeight="200.0" prefWidth="200.0" styleClass="bgCenter">
+               <stylesheets>
+                  <URL value="@../style/TelaPrincipalStyle.css" />
+                  <URL value="@../style/SnackBar.css" />
+               </stylesheets>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </center>
+   <stylesheets>
+      <URL value="@../style/TelaLoginStyle.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

@@ -1,0 +1,17 @@
+.tree-table-view .column-header{
+    -fx-border-width : 0 0 0 0;
+    -fx-border-color: transparent ;
+}
+
+.tree-table-view .column-header .label {
+	 -fx-border-width : 0 0 0 0;
+    -fx-text-fill : transparent ;
+    -fx-border-color: transparent ;
+ 
+}
+
+
+.tree-table-view .column-header-background{
+    -fx-border-width : 0 0.0 0 0;
+    -fx-border-color:transparent;
+}

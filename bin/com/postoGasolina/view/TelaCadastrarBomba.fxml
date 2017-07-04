@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="540.0" minWidth="353.0" prefHeight="555.0" prefWidth="366.0" style="-fx-background-color: #333;" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaCadastrarBombaController">
+   <top>
+      <GridPane fx:id="gridPaneTipoCombustivel" minHeight="540.0" minWidth="353.0" prefHeight="555.0" prefWidth="366.0" styleClass="gridfundo" stylesheets="@../style/TelaGerenciarFuncionario.css" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="264.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="51.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXButton fx:id="btnNovo" buttonType="RAISED" focusTraversable="false" onAction="#btnNovo" prefHeight="40.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Novo    " textFill="#3b3636d1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="5.0" />
+               </GridPane.margin>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                     <image>
+                        <Image url="@../../../../../../../Desktop/add-file-xxl.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField cacheShape="false" centerShape="false" editable="false" focusColor="#ececec" focusTraversable="false" pickOnBounds="false" promptText="Nome" scaleShape="false" styleClass="titulo" stylesheets="@../style/TelaGerenciarFuncionario.css" text="             CADASTRAR BOMBA" unFocusColor="#ececec" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="50.0" right="50.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXButton fx:id="btnExcluir" buttonType="RAISED" focusTraversable="false" onAction="#btnExcluir" prefHeight="25.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Excluir " textFill="#3b3636d1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="250.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Desktop/828109_delete_512x512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnSalvar" buttonType="RAISED" focusTraversable="false" layoutX="30.0" layoutY="33.0" onAction="#btnSalvar" prefHeight="40.0" prefWidth="104.0" ripplerFill="#2223240e" style="-fx-background-color: linear-gradient(to top, #dfe9f3 0%, white 100%); -fx-background-radius: 50px; -fx-border-radius: 50px;" stylesheets="" text="Salvar   " textFill="#3b3636d1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
+                     <image>
+                        <Image url="@../../../../../../../Desktop/save-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="130.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <BorderPane fx:id="borderPaneTabela" minWidth="353.0" style="-fx-background-color: #F3f3f3;" GridPane.rowIndex="6">
+               <top>
+                  <GridPane prefHeight="34.0" prefWidth="366.0" stylesheets="@../style/TelaGerenciarFuncionario.css" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <JFXTextField fx:id="campoPesquisar" focusColor="#f3f3f3" promptText="Pesquisar..." styleClass="campoPesquisar" unFocusColor="#f3f3f3">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets left="50.0" right="18.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <image>
+                              <Image url="@../img/TelaPrincipal/search.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </top>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </BorderPane>
+            <JFXListView fx:id="listViewBico" stylesheets="@../style/listView.css" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </JFXListView>
+            <JFXTextField fx:id="campoBico" focusColor="#fcf0f0" labelFloat="true" promptText="Bico *" styleClass="formata-campo" stylesheets="@../style/TelaGerenciarFuncionario.css" unFocusColor="#fcf0f0c7" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="5.0" right="60.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <ImageView fx:id="btnAdicionarBico" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@../img/TelaPrincipal/add_orange.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="310.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="btnExcluirBico" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@../img/TelaPrincipal/minus.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="340.0" />
+               </GridPane.margin>
+            </ImageView>
+            <JFXTextField fx:id="campoBomba" focusColor="WHITE" focusTraversable="false" labelFloat="true" promptText="Bomba *" styleClass="formata-campo" unFocusColor="WHITE" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </JFXTextField>
+         </children>
+      </GridPane>
+   </top>
+   <stylesheets>
+      <URL value="@../style/TelaGerenciarFuncionario.css" />
+      <URL value="@../style/SnackBar.css" />
+   </stylesheets>
+</BorderPane>

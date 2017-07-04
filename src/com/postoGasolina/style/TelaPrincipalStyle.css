@@ -1,0 +1,58 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+@font-face {
+    src: url('../fonts/NB-National-Std-Bold.ttf');
+}
+@font-face {
+	src: url('../fonts/edosz.ttf');
+}
+@font-face {
+	src: url('../fonts/QuickCaps.otf');
+}
+
+.bgCenter{
+	-fx-background-image: url(/com/postoGasolina/img/TelaLogin/bombaCombustivel.png);
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
+
+.bgPrincipal{
+	/*
+	 * 
+	 *-fx-background-color: linear-gradient(to bottom, #e52d27 , #b31217);
+	 * 
+	 */
+	 
+	 
+	-fx-background-color: linear-gradient(to bottom,#8c3cc8,#7b1884);
+	
+	
+	
+	
+	
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	
+	
+	-fx-border-color: rgba(255.0,255.0,255.0,0.15);
+    -fx-border-insets: 0.0;
+    -fx-border-width: 0.1;
+    -fx-border-style:none;
+}
+.menuButtom{
+	-fx-background-color: rgba(45.0,45.0,45.0,0.15);
+	
+	-fx-border-color:rgba(255.0,255.0,255.0,0.15);
+	
+	  
+	-fx-border-color: rgba(255.0,255.0,255.0,0.15);
+    -fx-border-insets: 1.0;
+    -fx-border-width: 1.0;
+    -fx-border-style:none;
+}
+.menuButtom:hover{
+	-fx-background-image: url(/com/postoGasolina/img/TelaPrincipal/botao-hover.png);
+	-fx-background-size: cover;
+	
+}

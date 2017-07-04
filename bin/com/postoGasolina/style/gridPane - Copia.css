@@ -1,0 +1,6 @@
+.root {
+    -fx-opacity: 0.8;
+    -fx-text-fill: white;
+    -fx-border-color: red;
+    -fx-border-radius: 20px;
+}
