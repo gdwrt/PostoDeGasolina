@@ -30,18 +30,18 @@ public class FuncionarioDao implements IMetodos {
 	@Override
 	public void cadastrar(Object objeto) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// Prepara a conex„o
+		// Prepara a conex√£o
 		if (objeto instanceof Funcionario) {
 
 			Funcionario funcionario = (Funcionario) objeto;
 
-			// prepara conex„o
+			// prepara conex√£o
 			connection = ConexaoUtil.getInstance().getConnection();
 
 			// ADICIONA PESSOA
 			sql = "insert into tb_pessoa(nome, data_nascimento, sexo, estado_civil, rg, cpf)values(?,?,?,?,?,?)";
 
-			// chama a conex„o e retorna id
+		
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, funcionario.getPessoa().getNome());
 			statement.setDate(2, Date.valueOf(funcionario.getPessoa().getData_nascimento()));
@@ -51,13 +51,13 @@ public class FuncionarioDao implements IMetodos {
 			statement.setString(6, funcionario.getPessoa().getCpf());
 			statement.execute();
 
-			// pegar o id da pessoa inserida
+			// pega o id da pessoa inserida
 			rs = statement.getGeneratedKeys();
 			if (rs.next()) {
 				idPessoa = rs.getInt(1);
 			}
 
-			// ADICIONA ENDERE«O
+			// ADICIONA ENDERE√áO
 			sql = "insert into tb_endereco(cep, endereco, numero, complemento, bairro, uf, cidade)values(?,?,?,?,?,?,?)";
 
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -76,7 +76,7 @@ public class FuncionarioDao implements IMetodos {
 				idEndereco = rs.getInt(1);
 			}
 
-			// ADICIONA FUNCION¡RIO
+			// ADICIONA FUNCION√ÅRIO
 			sql = "insert into tb_funcionario(id_pessoa_fk, id_endereco_fk, id_cargo_fk, status, email, data_admissao, data_demissao, observacao)values(?,?,?,?,?,?,?,?)";
 
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -116,7 +116,7 @@ public class FuncionarioDao implements IMetodos {
 			rs.close();
 
 		} else {
-			System.out.println("A classe que vocÍ est· passando por par‚metro n„o È um funcionario");
+			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um funcionario");
 		}
 
 	}
@@ -158,7 +158,7 @@ public class FuncionarioDao implements IMetodos {
 
 			statement.execute();
 
-			// ADICIONA FUNCION¡RIO
+			// ADICIONA FUNCION√ÅRIO
 			sql = "update tb_funcionario set id_cargo_fk=?, status=?, email=?, data_admissao=?, data_demissao=?, observacao=? where id_funcionario=?";
 
 			statement = connection.prepareStatement(sql);
@@ -178,7 +178,7 @@ public class FuncionarioDao implements IMetodos {
 			// rs.close();
 
 		} else {
-			System.out.println("A classe que vocÍ est· passando por par‚metro n„o È um funcionario");
+			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um funcionario");
 		}
 
 	}
@@ -245,10 +245,10 @@ public class FuncionarioDao implements IMetodos {
 			rs2 = statement.executeQuery();
 			rs2.next();
 			listaFuncionario.add(
-					// È um Funcion·rio
+					// √© um Funcion√°rio
 					new Funcionario(rs.getInt("id_funcionario"),
 
-							// È uma pessoa
+							// √© uma pessoa
 							new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 									ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 									Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),
@@ -338,10 +338,10 @@ public class FuncionarioDao implements IMetodos {
 			rs2 = statement.executeQuery();
 			rs2.next();
 			listaFuncionario.add(
-					// È um Funcion·rio
+					// √© um Funcion√°rio
 					new Funcionario(rs.getInt("id_funcionario"),
 
-							// È uma pessoa
+							// √© uma pessoa
 							new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 									ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 									Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),
