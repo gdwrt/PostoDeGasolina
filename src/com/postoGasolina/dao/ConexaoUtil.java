@@ -18,9 +18,9 @@ public class ConexaoUtil {
 	public Connection getConnection() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		
-		String url = "jdbc:mysql://localhost/db_posto_gasolina";
-        String usuario = "root";
-        String senha = "";
+		String url = "jdbc:mysql://localhost/******";
+        String usuario = "****";
+        String senha = "****";
         Connection con = DriverManager.getConnection(url, usuario, senha);
 		
 		
