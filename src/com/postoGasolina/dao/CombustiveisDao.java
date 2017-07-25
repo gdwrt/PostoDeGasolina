@@ -30,18 +30,18 @@ public class CombustiveisDao implements IMetodos {
 	@Override
 	public void cadastrar(Object objeto) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// Prepara a conex„o
+		// Prepara a conex√£o
 		if (objeto instanceof Combustivel) {
 
 			Combustivel Combustivel = (Combustivel) objeto;
 
-			// prepara conex„o
+			// prepara conex√£o
 			connection = ConexaoUtil.getInstance().getConnection();
 
-			// ADICIONA PESSOA
+			
 			sql = "insert into tb_combustivel(id_tipo_combustivel_fk, id_bomba_fk, id_bico_fk, descricao, preco_venda)values(?,?,?,?,?)";
 
-			// chama a conex„o e retorna id
+		
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, Combustivel.getTipoCombustivel().getId_tipo_combustivel());
 			statement.setInt(2, Combustivel.getBomba().getId_bomba());
@@ -55,7 +55,7 @@ public class CombustiveisDao implements IMetodos {
 
 
 		} else {
-			System.out.println("A classe que vocÍ est· passando por par‚metro n„o È um cliente fisÌco");
+			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um cliente fis√≠co");
 		}
 
 	}
@@ -67,13 +67,13 @@ public class CombustiveisDao implements IMetodos {
 
 			Combustivel Combustivel = (Combustivel) objeto;
 
-			// prepara conex„o
+			// prepara conex√£o
 			connection = ConexaoUtil.getInstance().getConnection();
 
-			// ADICIONA PESSOA
+		
 			sql = "update tb_combustivel set id_tipo_combustivel_fk=?, id_bomba_fk=?, id_bico_fk=?, descricao=?, preco_venda=? where id_combustivel=?";
 
-			// chama a conex„o e retorna id
+		
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, Combustivel.getTipoCombustivel().getId_tipo_combustivel());
 			statement.setInt(2, Combustivel.getBomba().getId_bomba());
@@ -87,7 +87,7 @@ public class CombustiveisDao implements IMetodos {
 			connection.close();
 
 		} else {
-			System.out.println("A classe que vocÍ est· passando por par‚metro n„o È um cliente fisÌco");
+			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um cliente fis√≠co");
 		}
 
 	}
@@ -116,7 +116,7 @@ public class CombustiveisDao implements IMetodos {
 
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		// combustivel
+	
 		sql = "SELECT * FROM tb_combustivel combustivel inner join tb_tipo_combustivel tipo on(combustivel.id_tipo_combustivel_fk = tipo.id_tipo_combustivel)";
 		statement = connection.prepareStatement(sql);
 
@@ -184,7 +184,7 @@ public class CombustiveisDao implements IMetodos {
 
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		// combustivel
+	
 		sql = "SELECT * FROM tb_combustivel combustivel inner join tb_tipo_combustivel tipo on(combustivel.id_tipo_combustivel_fk = tipo.id_tipo_combustivel) where id_combustivel=?";
 		statement = connection.prepareStatement(sql);
 		statement.setInt(1, id); 
