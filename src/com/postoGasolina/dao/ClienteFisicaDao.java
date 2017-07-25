@@ -34,18 +34,18 @@ public class ClienteFisicaDao implements IMetodos {
 	@Override
 	public void cadastrar(Object objeto) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// Prepara a conex„o
+		// Prepara a conex√£o
 		if (objeto instanceof Cliente_fisica) {
 
 			Cliente_fisica clienteFisica = (Cliente_fisica) objeto;
 
-			// prepara conex„o
+			// prepara conex√£o
 			connection = ConexaoUtil.getInstance().getConnection();
 
 			// ADICIONA PESSOA
 			sql = "insert into tb_pessoa(nome, data_nascimento, sexo, estado_civil, rg, cpf)values(?,?,?,?,?,?)";
 
-			// chama a conex„o e retorna id
+			// chama a conex√£o e retorna id
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, clienteFisica.getPessoa().getNome());
 			statement.setDate(2, Date.valueOf(clienteFisica.getPessoa().getData_nascimento()));
@@ -55,13 +55,13 @@ public class ClienteFisicaDao implements IMetodos {
 			statement.setString(6, clienteFisica.getPessoa().getCpf());
 			statement.execute();
 
-			// pegar o id da pessoa inserida
+			// pega o id da pessoa inserida
 			rs = statement.getGeneratedKeys();
 			if (rs.next()) {
 				idPessoa = rs.getInt(1);
 			}
 
-			// ADICIONA ENDERE«O
+			// ADICIONA ENDERE√áO
 			sql = "insert into tb_endereco(cep, endereco, numero, complemento, bairro, uf, cidade)values(?,?,?,?,?,?,?)";
 
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -118,31 +118,30 @@ public class ClienteFisicaDao implements IMetodos {
 			rs.close();
 
 		} else {
-			System.out.println("A classe que vocÍ est· passando por par‚metro n„o È um cliente fisÌco");
+			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um cliente fis√≠co");
 		}
 
 	}
 
 	public void cadastrar(String nome, String cpf) throws ClassNotFoundException, SQLException {
-		// prepara conex„o
+		// prepara conex√£o
 		connection = ConexaoUtil.getInstance().getConnection();
 
 		// ADICIONA PESSOA
 		sql = "insert into tb_pessoa(nome,cpf)values(?,?)";
 
-		// chama a conex„o e retorna id
+		// chama a conex√£o e retorna id
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		statement.setString(1, nome);
 		statement.setString(2, cpf);
 		statement.execute();
 
-		// pegar o id da pessoa inserida
+		// pega o id da pessoa inserida
 		rs = statement.getGeneratedKeys();
 		if (rs.next()) {
 			idPessoa = rs.getInt(1);
 		}
 
-		// ADICIONA ENDERE«O
 		sql = "insert into tb_endereco(uf)values(?)";
 
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -228,7 +227,7 @@ public class ClienteFisicaDao implements IMetodos {
 			// rs.close();
 
 		} else {
-			System.out.println("A classe que vocÍ est· passando por par‚metro n„o È um cliente fÌsico");
+			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um cliente f√≠sico");
 		}
 
 	}
@@ -297,10 +296,10 @@ public class ClienteFisicaDao implements IMetodos {
 					lista_telefones.add(new Telefone(rs2.getInt("id_cliente_fisica_fk"), rs2.getString("telefone")));
 				}
 				listaclientes.add(
-						// È um cliente
+						// √© um cliente
 						new Cliente_fisica(rs.getInt("id_cliente_fisica"),
 
-								// È uma pessoa
+								// √© uma pessoa
 								new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 										ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 										Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),
@@ -347,10 +346,10 @@ public class ClienteFisicaDao implements IMetodos {
 				lista_telefones.add(new Telefone(rs2.getInt("id_cliente_fisica_fk"), rs2.getString("telefone")));
 			}
 			listaclientes.add(
-					// È um cliente
+					// √© um cliente
 					new Cliente_fisica(rs.getInt("id_cliente_fisica"),
 
-							// È uma pessoa
+							// √© uma pessoa
 							new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 									ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 									Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),
