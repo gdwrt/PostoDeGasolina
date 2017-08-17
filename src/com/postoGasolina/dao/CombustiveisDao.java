@@ -30,23 +30,14 @@ public class CombustiveisDao implements InterfaceDao<Combustivel> {
 	@Override
 	public void cadastrar(Combustivel Combustivel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 	
 			// prepara conex�o
-=======
-		// Prepara a conexão
-		if (objeto instanceof Combustivel) {
-
-			Combustivel Combustivel = (Combustivel) objeto;
-
-			// prepara conexão
->>>>>>> origin/master
 			connection = ConexaoUtil.getInstance().getConnection();
 
-			
+			// ADICIONA PESSOA
 			sql = "insert into tb_combustivel(id_tipo_combustivel_fk, id_bomba_fk, id_bico_fk, descricao, preco_venda)values(?,?,?,?,?)";
 
-		
+			// chama a conex�o e retorna id
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, Combustivel.getTipoCombustivel().getId_tipo_combustivel());
 			statement.setInt(2, Combustivel.getBomba().getId_bomba());
@@ -57,27 +48,18 @@ public class CombustiveisDao implements InterfaceDao<Combustivel> {
 
 			statement.close();
 			connection.close();
-<<<<<<< HEAD
-=======
-
-
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente fisíco");
-		}
-
->>>>>>> origin/master
 	}
 
 	@Override
 	public void alterar(Combustivel Combustivel) throws SQLException, ClassNotFoundException {
 
-			// prepara conexão
+			// prepara conex�o
 			connection = ConexaoUtil.getInstance().getConnection();
 
-		
+			// ADICIONA PESSOA
 			sql = "update tb_combustivel set id_tipo_combustivel_fk=?, id_bomba_fk=?, id_bico_fk=?, descricao=?, preco_venda=? where id_combustivel=?";
 
-		
+			// chama a conex�o e retorna id
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, Combustivel.getTipoCombustivel().getId_tipo_combustivel());
 			statement.setInt(2, Combustivel.getBomba().getId_bomba());
@@ -90,13 +72,6 @@ public class CombustiveisDao implements InterfaceDao<Combustivel> {
 			statement.close();
 			connection.close();
 
-<<<<<<< HEAD
-=======
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente fisíco");
-		}
-
->>>>>>> origin/master
 	}
 
 	@Override
@@ -123,7 +98,7 @@ public class CombustiveisDao implements InterfaceDao<Combustivel> {
 
 		connection = ConexaoUtil.getInstance().getConnection();
 
-	
+		// combustivel
 		sql = "SELECT * FROM tb_combustivel combustivel inner join tb_tipo_combustivel tipo on(combustivel.id_tipo_combustivel_fk = tipo.id_tipo_combustivel)";
 		statement = connection.prepareStatement(sql);
 
@@ -191,7 +166,7 @@ public class CombustiveisDao implements InterfaceDao<Combustivel> {
 
 		connection = ConexaoUtil.getInstance().getConnection();
 
-	
+		// combustivel
 		sql = "SELECT * FROM tb_combustivel combustivel inner join tb_tipo_combustivel tipo on(combustivel.id_tipo_combustivel_fk = tipo.id_tipo_combustivel) where id_combustivel=?";
 		statement = connection.prepareStatement(sql);
 		statement.setInt(1, id); 

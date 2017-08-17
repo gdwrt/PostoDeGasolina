@@ -30,20 +30,15 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 	@Override
 	public void cadastrar(Funcionario funcionario) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-=======
-		// Prepara a conex√£o
-		if (objeto instanceof Funcionario) {
->>>>>>> origin/master
 
 
-			// prepara conex√£o
+			// prepara conex„o
 			connection = ConexaoUtil.getInstance().getConnection();
 
 			// ADICIONA PESSOA
 			sql = "insert into tb_pessoa(nome, data_nascimento, sexo, estado_civil, rg, cpf)values(?,?,?,?,?,?)";
 
-		
+			// chama a conex„o e retorna id
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, funcionario.getPessoa().getNome());
 			statement.setDate(2, Date.valueOf(funcionario.getPessoa().getData_nascimento()));
@@ -53,13 +48,13 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 			statement.setString(6, funcionario.getPessoa().getCpf());
 			statement.execute();
 
-			// pega o id da pessoa inserida
+			// pegar o id da pessoa inserida
 			rs = statement.getGeneratedKeys();
 			if (rs.next()) {
 				idPessoa = rs.getInt(1);
 			}
 
-			// ADICIONA ENDERE√áO
+			// ADICIONA ENDERE«O
 			sql = "insert into tb_endereco(cep, endereco, numero, complemento, bairro, uf, cidade)values(?,?,?,?,?,?,?)";
 
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -78,7 +73,7 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 				idEndereco = rs.getInt(1);
 			}
 
-			// ADICIONA FUNCION√ÅRIO
+			// ADICIONA FUNCION¡RIO
 			sql = "insert into tb_funcionario(id_pessoa_fk, id_endereco_fk, id_cargo_fk, status, email, data_admissao, data_demissao, observacao)values(?,?,?,?,?,?,?,?)";
 
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -116,14 +111,6 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 			statement.close();
 			connection.close();
 			rs.close();
-<<<<<<< HEAD
-=======
-
-		} else {
-			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um funcionario");
-		}
-
->>>>>>> origin/master
 	}
 
 	@Override
@@ -160,7 +147,7 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 
 			statement.execute();
 
-			// ADICIONA FUNCION√ÅRIO
+			// ADICIONA FUNCION¡RIO
 			sql = "update tb_funcionario set id_cargo_fk=?, status=?, email=?, data_admissao=?, data_demissao=?, observacao=? where id_funcionario=?";
 
 			statement = connection.prepareStatement(sql);
@@ -179,13 +166,6 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 			connection.close();
 			// rs.close();
 
-<<<<<<< HEAD
-=======
-		} else {
-			System.out.println("A classe que voc√™ est√° passando por par√¢metro n√£o √© um funcionario");
-		}
-
->>>>>>> origin/master
 	}
 
 	@Override
@@ -250,10 +230,10 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 			rs2 = statement.executeQuery();
 			rs2.next();
 			listaFuncionario.add(
-					// √© um Funcion√°rio
+					// È um Funcion·rio
 					new Funcionario(rs.getInt("id_funcionario"),
 
-							// √© uma pessoa
+							// È uma pessoa
 							new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 									ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 									Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),
@@ -343,10 +323,10 @@ public class FuncionarioDao implements InterfaceDao<Funcionario> {
 			rs2 = statement.executeQuery();
 			rs2.next();
 			listaFuncionario.add(
-					// √© um Funcion√°rio
+					// È um Funcion·rio
 					new Funcionario(rs.getInt("id_funcionario"),
 
-							// √© uma pessoa
+							// È uma pessoa
 							new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 									ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 									Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),

@@ -24,20 +24,20 @@ public class Email {
 		// Utilize o hostname do seu provedor de email
 		// alterando hostname...
 		email.setHostName("smtp.gmail.com");
-		// smtp.gmail.com porta 465 -- padrÃ£o gmail
+		// smtp.gmail.com porta 465 -- padrão gmail
 		email.setSmtpPort(465);
-		// Email do destinatÃ¡rio
+		// Email do destinatário
 		email.addTo(emailDestinatario.toLowerCase().replaceAll(" ", ""), nome);
 		// Email do remetente
-		email.setFrom("admin@fsm.com.br", "Fuel Station Manager (Gerenciador de Postos de CombustÃ­veis)");
+		email.setFrom("admin@fsm.com.br", "Fuel Station Manager (Gerenciador de Postos de Combustíveis)");
 		// Nome do assunto
-		email.setSubject("AniversÃ¡rio");
+		email.setSubject("Aniversário");
 
 		// Adicione a mensagem do email
 		email.setMsg(mensagem);
 		// Autenticando o servidor para enviar msg
 		email.setSSL(true);
-		email.setAuthentication("seuEmail@hotmail.com", "****************");
+		email.setAuthentication("*************", "**************");
 		// enviando ..
 		email.send();
 		return 1;
@@ -48,19 +48,19 @@ public class Email {
 		// Utilize o hostname do seu provedor de email
 		// alterando hostname...
 		email.setHostName("smtp.gmail.com");
-		// smtp.gmail.com porta 465 -- padrÃ£o gmail
+		// smtp.gmail.com porta 465 -- padrão gmail
 		email.setSmtpPort(465);
-		// Email do destinatÃ¡rio
+		// Email do destinatário
 		email.addTo(emailDestinatario.toLowerCase().replaceAll(" ", ""), nome);
 		// Email do remetente
-		email.setFrom("admin@fsm.com.br", "Fuel Station Manager (Gerenciador de Postos de CombustÃ­veis) - ");
+		email.setFrom("*************", "Fuel Station Manager (Gerenciador de Postos de Combustíveis) - ");
 		// Nome do assunto
 		email.setSubject("Nova senha");
 		// Adicione a mensagem do email
 		email.setMsg("Nova senha gerada com sucesso : "+mensagem);
 		// Autenticando o servidor para enviar msg
 		email.setSSL(true);
-		email.setAuthentication("readytosavealife@gmail.com", "geovani48622684");
+		email.setAuthentication("**********", "**************");
 		// enviando ..
 		email.send();
 		return 1;
@@ -89,7 +89,7 @@ public class Email {
 		// cria a string novaSenha
 		String novaSenha = "";
 		for (int i = 0; i < 10; ++i) {
-			// gera um numero aleatÃ³rio de acordo com a quantidade maxima da
+			// gera um numero aleatório de acordo com a quantidade maxima da
 			// string caracteres
 			int gerador = aleatorio.nextInt(caracteres.length());
 			// concatena o caractere selecionado na nova senha

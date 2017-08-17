@@ -34,44 +34,12 @@ public class ClienteFisicaDao implements InterfaceDao<Cliente_fisica> {
 	@Override
 	public void cadastrar(Cliente_fisica clienteFisica) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		// Prepara a conex�o
 		// prepara conex�o
 		connection = ConexaoUtil.getInstance().getConnection();
 
 		// ADICIONA PESSOA
 		sql = "insert into tb_pessoa(nome, data_nascimento, sexo, estado_civil, rg, cpf)values(?,?,?,?,?,?)";
-=======
-		// Prepara a conexão
-		if (objeto instanceof Cliente_fisica) {
-
-			Cliente_fisica clienteFisica = (Cliente_fisica) objeto;
-
-			// prepara conexão
-			connection = ConexaoUtil.getInstance().getConnection();
-
-			// ADICIONA PESSOA
-			sql = "insert into tb_pessoa(nome, data_nascimento, sexo, estado_civil, rg, cpf)values(?,?,?,?,?,?)";
-
-			// chama a conexão e retorna id
-			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			statement.setString(1, clienteFisica.getPessoa().getNome());
-			statement.setDate(2, Date.valueOf(clienteFisica.getPessoa().getData_nascimento()));
-			statement.setString(3, String.valueOf(clienteFisica.getPessoa().getSexo()));
-			statement.setString(4, clienteFisica.getPessoa().getEstado_civil());
-			statement.setString(5, clienteFisica.getPessoa().getRg());
-			statement.setString(6, clienteFisica.getPessoa().getCpf());
-			statement.execute();
-
-			// pega o id da pessoa inserida
-			rs = statement.getGeneratedKeys();
-			if (rs.next()) {
-				idPessoa = rs.getInt(1);
-			}
-
-			// ADICIONA ENDEREÇO
-			sql = "insert into tb_endereco(cep, endereco, numero, complemento, bairro, uf, cidade)values(?,?,?,?,?,?,?)";
->>>>>>> origin/master
 
 		// chama a conex�o e retorna id
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -121,14 +89,9 @@ public class ClienteFisicaDao implements InterfaceDao<Cliente_fisica> {
 
 		statement.execute();
 
-<<<<<<< HEAD
 		rs = statement.getGeneratedKeys();
 		if (rs.next()) {
 			id_cliente_fisica = rs.getInt(1);
-=======
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente fisíco");
->>>>>>> origin/master
 		}
 
 		clienteFisica.getListaTelefone().forEach(telefone -> {
@@ -153,24 +116,25 @@ public class ClienteFisicaDao implements InterfaceDao<Cliente_fisica> {
 	}
 
 	public void cadastrar(String nome, String cpf) throws ClassNotFoundException, SQLException {
-		// prepara conexão
+		// prepara conex�o
 		connection = ConexaoUtil.getInstance().getConnection();
 
 		// ADICIONA PESSOA
 		sql = "insert into tb_pessoa(nome,cpf)values(?,?)";
 
-		// chama a conexão e retorna id
+		// chama a conex�o e retorna id
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		statement.setString(1, nome);
 		statement.setString(2, cpf);
 		statement.execute();
 
-		// pega o id da pessoa inserida
+		// pegar o id da pessoa inserida
 		rs = statement.getGeneratedKeys();
 		if (rs.next()) {
 			idPessoa = rs.getInt(1);
 		}
 
+		// ADICIONA ENDERE�O
 		sql = "insert into tb_endereco(uf)values(?)";
 
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -246,13 +210,7 @@ public class ClienteFisicaDao implements InterfaceDao<Cliente_fisica> {
 		statement.setString(4, clienteFisica.getInformacao());
 		statement.setInt(5, clienteFisica.getId_cliente_fisica());
 
-<<<<<<< HEAD
 		statement.execute();
-=======
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente físico");
-		}
->>>>>>> origin/master
 
 		statement.close();
 		connection.close();
@@ -322,10 +280,10 @@ public class ClienteFisicaDao implements InterfaceDao<Cliente_fisica> {
 					lista_telefones.add(new Telefone(rs2.getInt("id_cliente_fisica_fk"), rs2.getString("telefone")));
 				}
 				listaclientes.add(
-						// é um cliente
+						// � um cliente
 						new Cliente_fisica(rs.getInt("id_cliente_fisica"),
 
-								// é uma pessoa
+								// � uma pessoa
 								new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 										ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 										Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),
@@ -373,10 +331,10 @@ public class ClienteFisicaDao implements InterfaceDao<Cliente_fisica> {
 				lista_telefones.add(new Telefone(rs2.getInt("id_cliente_fisica_fk"), rs2.getString("telefone")));
 			}
 			listaclientes.add(
-					// é um cliente
+					// � um cliente
 					new Cliente_fisica(rs.getInt("id_cliente_fisica"),
 
-							// é uma pessoa
+							// � uma pessoa
 							new Pessoa(rs.getInt("id_pessoa"), rs.getString("nome"),
 									ConverterDate.toLocalDate(rs.getDate("data_nascimento")),
 									Character.valueOf(rs.getString("sexo").charAt(0)), rs.getString("estado_civil"),

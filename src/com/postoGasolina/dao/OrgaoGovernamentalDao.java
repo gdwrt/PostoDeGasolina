@@ -26,10 +26,10 @@ public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 
 	public void cadastrar(Orgao_governamental orgao) throws ClassNotFoundException, SQLException {
 
-		// prepara conexão
+		// prepara conex�o
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		// ADICIONA ENDEREÇO
+		// ADICIONA ENDERE�O
 		sql = "insert into tb_endereco(cep, endereco, numero, complemento, bairro, uf, cidade)values(?,?,?,?,?,?,?)";
 
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -48,7 +48,7 @@ public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 			idEndereco = rs.getInt(1);
 		}
 
-		// ADICIONA ÓRGÃO
+		// ADICIONA CLIENTE
 		sql = "insert into tb_orgao(id_endereco_fk, nome, sigla, observacao, cnpj, email)values(?,?,?,?,?,?)";
 
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -88,10 +88,10 @@ public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 
 	public void alterar(Orgao_governamental orgao) throws SQLException, ClassNotFoundException {
 
-		// prepara conexão
+		// prepara conex�o
 		connection = ConexaoUtil.getInstance().getConnection(); 
 
-		// ADICIONA ENDEREÇO
+		// ADICIONA ENDERE�O
 		sql = "update tb_endereco set cep=?, endereco=?, numero=?, complemento=?, bairro=?, uf=?, cidade=? where id_endereco=?";
 
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -106,7 +106,7 @@ public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 
 		statement.execute();
 
-		// ADICIONA ÓRGÃO
+		// ADICIONA CLIENTE
 		sql = "update tb_orgao set nome=?, sigla=?, observacao=?, cnpj=?, email=? where id_orgao=?";
 
 		statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -155,7 +155,7 @@ public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		
+		// cliente
 		sql = "SELECT * FROM tb_orgao orgao inner join tb_endereco endereco on(orgao.id_endereco_fk = endereco.id_endereco)";
 		statement = connection.prepareStatement(sql);
 
@@ -199,7 +199,7 @@ public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		
+		// cliente
 		sql = "SELECT * FROM tb_orgao orgao inner join tb_endereco endereco on(orgao.id_endereco_fk = endereco.id_endereco) where orgao.id_orgao=?";
 		statement = connection.prepareStatement(sql);
 		statement.setInt(1, id);
