@@ -25,10 +25,9 @@ public class PermissoesDao implements InterfaceDao<Login>{
 	private ObservableList<Login> listaLogins;
 
 	public void cadastrar(Login login) throws ClassNotFoundException, SQLException {
-		// prepara conex„o
+		// prepara conex√£o
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		// ADICIONA ENDERE«O
 		sql = "insert into tb_login(id_funcionario_fk, email, senha, g_autorizacao_licenca, "
 				+ "g_orgao, g_fornecedores, g_clientes, g_funcionarios, g_fidelizacao, "
 				+ "g_compra_produtos, g_venda_produtos, g_combustivel, g_produtos, g_caixa, "
@@ -60,10 +59,9 @@ public class PermissoesDao implements InterfaceDao<Login>{
 	}
 
 	public void alterar(Login login) throws SQLException, ClassNotFoundException {
-		// prepara conex„o
+		// prepara conex√£o
 		connection = ConexaoUtil.getInstance().getConnection();
 
-		// ADICIONA ENDERE«O
 		sql = "update tb_login set id_funcionario_fk=?, email=?, senha=?, g_autorizacao_licenca=?, "
 				+ "g_orgao=?, g_fornecedores=?, g_clientes=?, g_funcionarios=?, g_fidelizacao=?, "
 				+ "g_compra_produtos=?, g_venda_produtos=?, g_combustivel=?, g_produtos=?, g_caixa=?, "
