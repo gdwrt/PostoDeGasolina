@@ -17,7 +17,7 @@ import com.postoGasolina.model.Telefone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class VendaDao {
+public class VendaDao{
 
 	private Connection connection;
 	private PreparedStatement statement;
@@ -126,7 +126,7 @@ public class VendaDao {
 					statement.close();
 					rs.close();
 				} else if (item.getTipo_produto().equals("produto")) {
-					if (!item.getProduto_loja().getProduto().isNão_controlar_estoque()) {
+					if (!item.getProduto_loja().getProduto().isNao_controlar_estoque()) {
 						sql = "select estoque_disponivel,(estoque_disponivel-?) as estoqueAtualizado from tb_produto  where id_produto =?;";
 						statement = connection.prepareStatement(sql);
 						statement.setBigDecimal(1, item.getQuantidade());

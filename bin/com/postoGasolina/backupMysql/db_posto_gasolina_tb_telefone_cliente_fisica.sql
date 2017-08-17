@@ -25,11 +25,11 @@ DROP TABLE IF EXISTS `tb_telefone_cliente_fisica`;
 CREATE TABLE `tb_telefone_cliente_fisica` (
   `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
   `id_cliente_fisica_fk` int(11) NOT NULL,
-  `telefone` varchar(14) DEFAULT NULL,
-  PRIMARY KEY (`id_telefone`,`id_cliente_fisica_fk`),
+  `telefone` varchar(14) NOT NULL,
+  PRIMARY KEY (`id_telefone`,`id_cliente_fisica_fk`,`telefone`),
   KEY `fk_tb_telefone_copy1_tb_cliente_fisica1_idx` (`id_cliente_fisica_fk`),
-  CONSTRAINT `fk_tb_telefone_copy1_tb_cliente_fisica1` FOREIGN KEY (`id_cliente_fisica_fk`) REFERENCES `tb_cliente_fisica` (`id_cliente_fisica`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_tb_telefone_copy1_tb_cliente_fisica1` FOREIGN KEY (`id_cliente_fisica_fk`) REFERENCES `tb_cliente_fisica` (`id_cliente_fisica`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `tb_telefone_cliente_fisica` (
 
 LOCK TABLES `tb_telefone_cliente_fisica` WRITE;
 /*!40000 ALTER TABLE `tb_telefone_cliente_fisica` DISABLE KEYS */;
-INSERT INTO `tb_telefone_cliente_fisica` VALUES (1,5,'(41)88899-6555'),(2,5,'(33)2255-4488'),(3,5,'(44)55887-799 '),(4,5,'(43)55553-3333'),(5,6,'(41)98777-6400'),(6,5,'(66)66666-6666'),(7,5,'(33)3333-3333'),(8,5,'(66)66666-6666'),(17,7,'(65)65656-565 '),(18,7,'(65)6565-6565');
 /*!40000 ALTER TABLE `tb_telefone_cliente_fisica` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:16
+-- Dump completed on 2017-08-17 12:09:38

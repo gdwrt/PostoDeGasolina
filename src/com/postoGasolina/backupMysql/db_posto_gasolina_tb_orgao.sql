@@ -33,7 +33,7 @@ CREATE TABLE `tb_orgao` (
   PRIMARY KEY (`id_orgao`),
   KEY `fk_tb_orgao_tb_endereco1_idx` (`id_endereco_fk`),
   CONSTRAINT `fk_tb_orgao_tb_endereco1` FOREIGN KEY (`id_endereco_fk`) REFERENCES `tb_endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,6 @@ CREATE TABLE `tb_orgao` (
 
 LOCK TABLES `tb_orgao` WRITE;
 /*!40000 ALTER TABLE `tb_orgao` DISABLE KEYS */;
-INSERT INTO `tb_orgao` VALUES (11,48,'STF BRASIL - COMERCIO E SERVICOS LTDA - ME','','Comércio atacadista de ferragens e ferramentas','07.784.255/0001-31','aratuelas@uol.com.br');
 /*!40000 ALTER TABLE `tb_orgao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:18
+-- Dump completed on 2017-08-17 12:09:40

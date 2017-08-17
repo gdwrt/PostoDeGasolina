@@ -29,7 +29,7 @@ CREATE TABLE `tb_bico` (
   PRIMARY KEY (`id_bico`),
   KEY `fk_tb_bico_tb_bomba1_idx` (`id_bomba_fk`),
   CONSTRAINT `fk_tb_bico_tb_bomba1` FOREIGN KEY (`id_bomba_fk`) REFERENCES `tb_bomba` (`id_bomba`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `tb_bico` (
 
 LOCK TABLES `tb_bico` WRITE;
 /*!40000 ALTER TABLE `tb_bico` DISABLE KEYS */;
-INSERT INTO `tb_bico` VALUES (15,10,'bico 1');
 /*!40000 ALTER TABLE `tb_bico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:18
+-- Dump completed on 2017-08-17 12:09:40

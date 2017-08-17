@@ -36,7 +36,7 @@ CREATE TABLE `tb_combustivel` (
   CONSTRAINT `fk_tb_combustivel_tb_bico1` FOREIGN KEY (`id_bico_fk`) REFERENCES `tb_bico` (`id_bico`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_combustivel_tb_bomba1` FOREIGN KEY (`id_bomba_fk`) REFERENCES `tb_bomba` (`id_bomba`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_combustivel_tb_tipo_combustivel1` FOREIGN KEY (`id_tipo_combustivel_fk`) REFERENCES `tb_tipo_combustivel` (`id_tipo_combustivel`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,6 @@ CREATE TABLE `tb_combustivel` (
 
 LOCK TABLES `tb_combustivel` WRITE;
 /*!40000 ALTER TABLE `tb_combustivel` DISABLE KEYS */;
-INSERT INTO `tb_combustivel` VALUES (8,12,10,15,'cashusdh',30.00),(9,13,10,15,'uhadsuh',3.14);
 /*!40000 ALTER TABLE `tb_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:16
+-- Dump completed on 2017-08-17 12:09:38

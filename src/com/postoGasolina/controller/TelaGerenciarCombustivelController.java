@@ -107,7 +107,7 @@ public class TelaGerenciarCombustivelController implements Initializable {
 			idCombustivel = Integer
 					.parseInt(treeTableViewCombustivel.getSelectionModel().getSelectedItem().getValue().toString());
 			try {
-				new CombustiveisDao().Remover(idCombustivel);
+				new CombustiveisDao().remover(idCombustivel);
 				carregarTabela();
 				limparCampos();
 				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);

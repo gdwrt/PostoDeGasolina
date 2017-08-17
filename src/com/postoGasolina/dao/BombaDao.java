@@ -12,7 +12,7 @@ import com.postoGasolina.model.Bomba;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class BombaDao {
+public class BombaDao implements InterfaceDao<Bomba>{ 
 	private Connection connetion;
 	private PreparedStatement statement;
 	private String sql;
@@ -72,7 +72,7 @@ public class BombaDao {
 
 	}
 
-	public void excluir(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		connetion = ConexaoUtil.getInstance().getConnection();
 
 		sql = "delete from tb_bico where id_bomba_fk=?";
@@ -148,5 +148,4 @@ public class BombaDao {
 		connetion.close();
 		statement.close();
 	}
-
 }

@@ -127,7 +127,7 @@ public class TelaGerenciarProdutos implements Initializable {
 		campoQuantidade.setPromptText("Estoque disponível *");
 		campoQuantidade.setLabelFloat(true);
 		gridPaneTop.add(campoQuantidade, 1, 2);
-		gridPaneTop.setMargin(campoQuantidade, new Insets(0, 180, 0, 0));
+		gridPaneTop.setMargin(campoQuantidade, new Insets(0, 167, 0, 0));
 
 		campoEstoqueMinimo.getStylesheets().add(style);
 		campoEstoqueMinimo.getStyleClass().add("formata-campo");
@@ -145,7 +145,7 @@ public class TelaGerenciarProdutos implements Initializable {
 		campoEstoqueMaximo.setPromptText("Estoque máximo *");
 		campoEstoqueMaximo.setLabelFloat(true);
 		gridPaneTop.add(campoEstoqueMaximo, 1, 4);
-		gridPaneTop.setMargin(campoEstoqueMaximo, new Insets(0, 350, 20, 5));
+		gridPaneTop.setMargin(campoEstoqueMaximo, new Insets(0, 350, 20, 0));
 		
 		campoPreco.getStylesheets().add(style);
 		campoPreco.getStyleClass().add("formata-campo");
@@ -154,7 +154,7 @@ public class TelaGerenciarProdutos implements Initializable {
 		campoPreco.setPromptText("Preço *");
 		campoPreco.setLabelFloat(true);
 		gridPaneTop.add(campoPreco, 1, 4);
-		gridPaneTop.setMargin(campoPreco, new Insets(0,10, 20, 320));
+		gridPaneTop.setMargin(campoPreco, new Insets(0,10, 20, 330));
 		
 		btnUnidadeMedida.setOnMouseClicked(event ->{
 			new Main().carregarTelaUnidadeMedida();
@@ -210,7 +210,7 @@ public class TelaGerenciarProdutos implements Initializable {
 
 			idProduto = Integer.parseInt(treeTableViewProduto.getSelectionModel().getSelectedItem().getValue().toString());
 			try {
-				new ProdutosDao().Remover(idProduto);
+				new ProdutosDao().remover(idProduto);
 				carregarTabela();
 				limparcampos();
 				
@@ -279,7 +279,7 @@ public class TelaGerenciarProdutos implements Initializable {
 				} else {
 					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
 					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000);
+					s.show("Campos obrigatï¿½rios nï¿½o informado", 4000);
 				}
 
 			} catch (Exception e) {
@@ -321,7 +321,7 @@ public class TelaGerenciarProdutos implements Initializable {
 			} else {
 				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
 				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Campos obrigatórios não informado", 4000);
+				s.show("Campos obrigatï¿½rios nï¿½o informado", 4000);
 			}
 
 		}
@@ -490,7 +490,7 @@ public class TelaGerenciarProdutos implements Initializable {
 							campoEstoqueMinimo.setNumber(produto.getEstoque_min());
 							campoPreco.setNumber(produto.getPreco_venda());
 							campoQuantidade.setNumber(produto.getEstoque_disponivel());
-							checkBoxNaoControlarEstoque.setSelected(produto.isNão_controlar_estoque());
+							checkBoxNaoControlarEstoque.setSelected(produto.isNao_controlar_estoque());
 							comboboxCategoria.setValue(produto.getCategoria());
 							comboboxUnidadeMedida.setValue(produto.getUnidade_medida());
 							verificarCheckBox();

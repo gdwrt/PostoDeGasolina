@@ -12,11 +12,11 @@ public class Produto {
 	private BigDecimal preco_venda;
 	private BigDecimal estoque_max;
 	private BigDecimal estoque_min;
-	private boolean não_controlar_estoque;
+	private boolean nao_controlar_estoque;
 	
 	public Produto(int id_produto, String codigo_produto, Categoria categoria, Unidade_medida unidade_medida,
 			String descricao, BigDecimal estoque_disponivel, BigDecimal preco_venda, BigDecimal estoque_max,
-			BigDecimal estoque_min, boolean não_controlar_estoque) {
+			BigDecimal estoque_min, boolean nao_controlar_estoque) {
 		super();
 		this.id_produto = id_produto;
 		this.codigo_produto = codigo_produto;
@@ -27,7 +27,7 @@ public class Produto {
 		this.preco_venda = preco_venda;
 		this.estoque_max = estoque_max;
 		this.estoque_min = estoque_min;
-		this.não_controlar_estoque = não_controlar_estoque;
+		this.nao_controlar_estoque = nao_controlar_estoque;
 	}
 
 	public int getId_produto() {
@@ -102,11 +102,11 @@ public class Produto {
 		this.estoque_min = estoque_min;
 	}
 
-	public boolean isNão_controlar_estoque() {
-		return não_controlar_estoque;
+	public boolean isNao_controlar_estoque() {
+		return nao_controlar_estoque;
 	}
 
-	public void setNão_controlar_estoque(boolean não_controlar_estoque) {
-		this.não_controlar_estoque = não_controlar_estoque;
+	public void setNao_controlar_estoque(boolean nao_controlar_estoque) {
+		this.nao_controlar_estoque = nao_controlar_estoque;
 	}
 }

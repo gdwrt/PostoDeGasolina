@@ -110,7 +110,7 @@ public class CompraDao {
 					statement.close();
 					rs.close();
 				} else if (item.getTipo_produto().equals("produto")) {
-					if (!item.getProduto_loja().getProduto().isNão_controlar_estoque()) {
+					if (!item.getProduto_loja().getProduto().isNao_controlar_estoque()) {
 						sql = "select estoque_disponivel,(estoque_disponivel+?) as estoqueAtualizado from tb_produto  where id_produto =?;";
 						statement = connetion.prepareStatement(sql);
 						statement.setBigDecimal(1, item.getQuantidade());

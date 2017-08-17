@@ -45,7 +45,6 @@ CREATE TABLE `tb_item_pedido_compra` (
 
 LOCK TABLES `tb_item_pedido_compra` WRITE;
 /*!40000 ALTER TABLE `tb_item_pedido_compra` DISABLE KEYS */;
-INSERT INTO `tb_item_pedido_compra` VALUES (1,NULL,9,'combustivel',3.14,50.00,157.00),(2,NULL,8,'combustivel',30.00,10.00,300.00),(2,NULL,9,'combustivel',3.14,10.00,31.40),(3,5,NULL,'produto',30.00,20.00,600.00),(3,4,NULL,'produto',50.00,100.00,5000.00),(3,3,NULL,'produto',50.00,1.00,50.00),(3,NULL,8,'combustivel',30.00,10.00,300.00),(3,NULL,9,'combustivel',3.14,10.00,31.40),(4,NULL,8,'combustivel',30.00,30.00,900.00),(5,NULL,8,'combustivel',30.00,30.00,900.00);
 /*!40000 ALTER TABLE `tb_item_pedido_compra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:17
+-- Dump completed on 2017-08-17 12:09:38

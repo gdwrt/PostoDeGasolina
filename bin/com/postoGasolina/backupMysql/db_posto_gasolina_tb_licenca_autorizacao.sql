@@ -38,7 +38,7 @@ CREATE TABLE `tb_licenca_autorizacao` (
   KEY `fk_tb_licenca_autorizacao_tb_orgao1_idx` (`id_orgao_fk`),
   CONSTRAINT `fk_tb_licenca_autorizacao_tb_funcionario1` FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario` (`id_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_licenca_autorizacao_tb_orgao1` FOREIGN KEY (`id_orgao_fk`) REFERENCES `tb_orgao` (`id_orgao`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,6 @@ CREATE TABLE `tb_licenca_autorizacao` (
 
 LOCK TABLES `tb_licenca_autorizacao` WRITE;
 /*!40000 ALTER TABLE `tb_licenca_autorizacao` DISABLE KEYS */;
-INSERT INTO `tb_licenca_autorizacao` VALUES (2,11,7,'asodkoaskdoask','2017-06-21','2017-06-24','Ativo','jshjSHKJhahjkashkjhad','asdmnsamdbasmndbsnas','filesPdf\\backup-restore-mysql.pdf'),(3,11,7,'sdjashdjsahkjdhas','2017-06-22','2017-06-21','Vencido','asjdhakshdka','sdasjkdhasjkhdjkashdjka','filesPdf\\configure-vhosts.pdf'),(4,11,7,'asdjbadjbas','2017-06-22','2017-06-24','Ativo','adjhasdhaksjhkad','','filesPdf\\requestProcess.pdf');
 /*!40000 ALTER TABLE `tb_licenca_autorizacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:15
+-- Dump completed on 2017-08-17 12:09:37

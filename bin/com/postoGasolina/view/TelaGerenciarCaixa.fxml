@@ -50,7 +50,7 @@
                                        <graphic>
                                           <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                                              <image>
-                                                <Image url="@../../../../../../../Desktop/add-file-xxl.png" />
+                                                <Image url="@../img/TelaVenda/add-file-xxl.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -65,7 +65,7 @@
                                        <graphic>
                                           <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                                              <image>
-                                                <Image url="@../../../../../../../Desktop/save-512.png" />
+                                                <Image url="@../img/TelaVenda/save-512.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -168,7 +168,7 @@
                                        <graphic>
                                           <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                                              <image>
-                                                <Image url="@../../../../../../../Desktop/add-file-xxl.png" />
+                                                <Image url="@../img/TelaVenda/add-file-xxl.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -222,7 +222,7 @@
                                     </GridPane>
                                  </top>
                                  <bottom>
-                                    <BarChart fx:id="GraficoMensal" prefHeight="303.0" prefWidth="937.0" title="Ganho Mensal" BorderPane.alignment="CENTER">
+                                    <BarChart fx:id="GraficoMensal" prefHeight="303.0" prefWidth="937.0" title="Histórico Mensal" BorderPane.alignment="CENTER">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" fx:id="x" />
                                       </xAxis>

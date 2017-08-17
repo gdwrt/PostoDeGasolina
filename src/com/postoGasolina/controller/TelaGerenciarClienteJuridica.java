@@ -159,7 +159,7 @@ public class TelaGerenciarClienteJuridica implements Initializable {
 					.split("/");
 			idCliente = Integer.parseInt(ids[0]);
 			try {
-				new ClienteJuridicaDao().Remover(idCliente);
+				new ClienteJuridicaDao().remover(idCliente);
 				carregarTabela();
 				limparCampos();
 				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);

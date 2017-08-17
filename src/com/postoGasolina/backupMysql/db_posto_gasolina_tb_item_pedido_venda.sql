@@ -33,9 +33,9 @@ CREATE TABLE `tb_item_pedido_venda` (
   KEY `fk_tb_item_pedido_venda_tb_pedido_venda1_idx` (`id_pedido_venda_fk`),
   KEY `fk_tb_item_pedido_venda_tb_produto1_idx` (`id_combustivel_fk`),
   KEY `fk_tb_item_pedido_venda_tb_produto1` (`id_produto_fk`),
-  CONSTRAINT `fk_tb_item_pedido_venda_tb_combustivel1` FOREIGN KEY (`id_combustivel_fk`) REFERENCES `tb_combustivel` (`id_combustivel`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tb_item_pedido_venda_tb_pedido_venda1` FOREIGN KEY (`id_pedido_venda_fk`) REFERENCES `tb_pedido_venda` (`id_pedido_venda`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tb_item_pedido_venda_tb_produto1` FOREIGN KEY (`id_produto_fk`) REFERENCES `tb_produto` (`id_produto`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_tb_item_pedido_venda_tb_combustivel1` FOREIGN KEY (`id_combustivel_fk`) REFERENCES `tb_combustivel` (`id_combustivel`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_item_pedido_venda_tb_pedido_venda1` FOREIGN KEY (`id_pedido_venda_fk`) REFERENCES `tb_pedido_venda` (`id_pedido_venda`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_item_pedido_venda_tb_produto1` FOREIGN KEY (`id_produto_fk`) REFERENCES `tb_produto` (`id_produto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=dec8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,7 +45,6 @@ CREATE TABLE `tb_item_pedido_venda` (
 
 LOCK TABLES `tb_item_pedido_venda` WRITE;
 /*!40000 ALTER TABLE `tb_item_pedido_venda` DISABLE KEYS */;
-INSERT INTO `tb_item_pedido_venda` VALUES (15,NULL,8,'combustivel',30.00,60.00,1800.00),(16,NULL,8,'combustivel',30.00,15.00,450.00),(17,NULL,8,'combustivel',30.00,20.00,600.00),(18,NULL,8,'combustivel',30.00,300.00,9000.00),(18,NULL,8,'combustivel',30.00,50.00,1500.00),(18,NULL,8,'combustivel',30.00,8.00,240.00),(19,NULL,8,'combustivel',30.00,555.00,16650.00),(20,NULL,8,'combustivel',30.00,10.00,300.00),(21,NULL,9,'combustivel',3.14,10.50,32.97),(22,NULL,8,'combustivel',30.00,10.00,300.00),(22,NULL,9,'combustivel',3.14,10.00,31.40),(23,NULL,9,'combustivel',3.14,22.00,69.08),(24,4,NULL,'produto',50.00,50.00,2500.00),(25,3,NULL,'produto',50.00,1.00,50.00),(26,2,NULL,'produto',250.00,1.00,250.00),(26,4,NULL,'produto',50.00,40.00,2000.00),(27,3,NULL,'produto',50.00,1.00,50.00),(27,5,NULL,'produto',30.00,50.00,1500.00),(27,2,NULL,'produto',250.00,1.00,250.00),(28,2,NULL,'produto',250.00,1.00,250.00),(28,5,NULL,'produto',30.00,50.00,1500.00),(29,3,NULL,'produto',50.00,1.00,50.00),(29,4,NULL,'produto',50.00,40.00,2000.00),(30,4,NULL,'produto',50.00,50.00,2500.00),(31,4,NULL,'produto',50.00,50.00,2500.00),(31,2,NULL,'produto',250.00,1.00,250.00),(32,5,NULL,'produto',30.00,20.00,600.00),(33,3,NULL,'produto',50.00,1.00,50.00),(34,2,NULL,'produto',250.00,1.00,250.00),(34,2,NULL,'produto',250.00,1.00,250.00),(34,2,NULL,'produto',250.00,1.00,250.00),(34,4,NULL,'produto',50.00,5404.00,270200.00),(35,4,NULL,'produto',50.00,500.00,25000.00),(37,NULL,9,'combustivel',3.14,50.00,157.00),(37,4,NULL,'produto',50.00,50.00,2500.00),(38,NULL,8,'combustivel',30.00,50.00,1500.00),(39,NULL,8,'combustivel',30.00,30.00,900.00),(40,NULL,8,'combustivel',30.00,30.00,900.00),(41,NULL,8,'combustivel',30.00,30.00,900.00),(42,NULL,9,'combustivel',3.14,30.00,94.20),(43,NULL,8,'combustivel',30.00,50.00,1500.00),(44,NULL,8,'combustivel',30.00,50.00,1500.00),(45,NULL,8,'combustivel',30.00,50.00,1500.00),(46,NULL,8,'combustivel',30.00,1.00,30.00),(47,NULL,8,'combustivel',30.00,20.00,600.00),(48,NULL,8,'combustivel',30.00,20.00,600.00),(49,NULL,8,'combustivel',30.00,24.00,720.00),(50,NULL,8,'combustivel',30.00,50.00,1500.00),(51,NULL,8,'combustivel',30.00,50.00,1500.00);
 /*!40000 ALTER TABLE `tb_item_pedido_venda` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:19
+-- Dump completed on 2017-08-17 12:09:40

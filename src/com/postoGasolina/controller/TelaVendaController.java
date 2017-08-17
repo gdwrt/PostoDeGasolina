@@ -229,7 +229,7 @@ public class TelaVendaController implements Initializable {
 					for (Item_pedido item : lista_itensPedido) {
 						if (item.getTipo_produto().equals("produto")) {
 
-							if (!item.getProduto_loja().getProduto().isNão_controlar_estoque()) {
+							if (!item.getProduto_loja().getProduto().isNao_controlar_estoque()) {
 								if (item.getProduto_loja().getProduto().getId_produto() == comboBoxProduto.getValue()
 										.getProduto().getId_produto()) {
 
@@ -532,7 +532,7 @@ public class TelaVendaController implements Initializable {
 											.getProduto().getPreco_venda();
 									campoPreco.setNumber(preco);
 									if (comboBoxProduto.getSelectionModel().getSelectedItem().getProduto()
-											.isNão_controlar_estoque()) {
+											.isNao_controlar_estoque()) {
 										campoQuantidade.setEditable(false);
 										campoQuantidade.setText("1");
 									} else {

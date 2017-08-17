@@ -11,7 +11,7 @@ import com.postoGasolina.model.Categoria;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CategoriaDao {
+public class CategoriaDao implements InterfaceDao<Categoria>{
 
 	private Connection connetion;
 	private PreparedStatement statement;
@@ -36,7 +36,7 @@ public class CategoriaDao {
 		
 		
 	}
-	public void excluir(int id) throws ClassNotFoundException, SQLException{
+	public void remover(int id) throws ClassNotFoundException, SQLException{
 		connetion = ConexaoUtil.getInstance().getConnection();
 		
 		sql = "delete from tb_categoria where id_categoria=?";
@@ -70,6 +70,11 @@ public class CategoriaDao {
 		rs.close();
 		
 		return lista_categoria;
+	}
+	@Override
+	public void alterar(Categoria t) throws SQLException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		
 	}
 
 

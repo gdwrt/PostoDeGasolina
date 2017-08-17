@@ -156,7 +156,7 @@
                               <Insets left="-10.0" />
                            </GridPane.margin>
                         </JFXToggleButton>
-                        <Label styleClass="formata-campo" text="G. Caixa" GridPane.rowIndex="10">
+                        <Label styleClass="formata-campo" text="G. Caixas" GridPane.rowIndex="10">
                            <GridPane.margin>
                               <Insets left="50.0" />
                            </GridPane.margin>
@@ -181,7 +181,7 @@
                               <Insets left="-10.0" />
                            </GridPane.margin>
                         </JFXToggleButton>
-                        <Label styleClass="formata-campo" text="G. Compra" GridPane.rowIndex="12">
+                        <Label styleClass="formata-campo" text="G. Compras" GridPane.rowIndex="12">
                            <GridPane.margin>
                               <Insets left="50.0" />
                            </GridPane.margin>
@@ -211,7 +211,7 @@
                               <Insets left="170.0" />
                            </GridPane.margin>
                         </JFXToggleButton>
-                        <Label styleClass="formata-campo" text="G. Órgão gov." GridPane.rowIndex="9">
+                        <Label styleClass="formata-campo" text="G. Órgãos gov." GridPane.rowIndex="9">
                            <GridPane.margin>
                               <Insets left="50.0" />
                            </GridPane.margin>
@@ -231,7 +231,7 @@
                               <Insets left="-10.0" />
                            </GridPane.margin>
                         </JFXToggleButton>
-                        <Label styleClass="formata-campo" text="G. Venda" GridPane.rowIndex="12">
+                        <Label styleClass="formata-campo" text="G. Vendas" GridPane.rowIndex="12">
                            <GridPane.margin>
                               <Insets left="230.0" />
                            </GridPane.margin>

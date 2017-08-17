@@ -43,8 +43,8 @@ CREATE TABLE `tb_login` (
   `nivel_acesso` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_login`),
   KEY `fk_tb_login_tb_funcionario_idx` (`id_funcionario_fk`),
-  CONSTRAINT `fk_tb_login_tb_funcionario` FOREIGN KEY (`id_funcionario_fk`) REFERENCES `tb_funcionario` (`id_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_tb_login_tb_funcionario` FOREIGN KEY (`id_funcionario_fk`) REFERENCES `tb_funcionario` (`id_funcionario`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,4 +65,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:17
+-- Dump completed on 2017-08-17 12:09:39

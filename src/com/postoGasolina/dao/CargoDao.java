@@ -10,7 +10,7 @@ import com.postoGasolina.model.Cargo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CargoDao {
+public class CargoDao implements InterfaceDao<Cargo>{
 	
 	private Connection connetion;
 	private PreparedStatement statement;
@@ -35,7 +35,7 @@ public class CargoDao {
 		
 		
 	}
-	public void excluir(int id) throws ClassNotFoundException, SQLException{
+	public void remover(int id) throws ClassNotFoundException, SQLException{
 		connetion = ConexaoUtil.getInstance().getConnection();
 		
 		sql = "delete from tb_cargo where id_cargo=?";
@@ -69,6 +69,11 @@ public class CargoDao {
 		rs.close();
 		
 		return lista_cargos;
+	}
+	@Override
+	public void alterar(Cargo t) throws SQLException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

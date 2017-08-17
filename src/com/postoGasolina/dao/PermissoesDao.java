@@ -16,7 +16,7 @@ import com.postoGasolina.model.Telefone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class PermissoesDao {
+public class PermissoesDao implements InterfaceDao<Login>{
 
 	private Connection connection;
 	private String sql;
@@ -95,7 +95,7 @@ public class PermissoesDao {
 
 	}
 
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 

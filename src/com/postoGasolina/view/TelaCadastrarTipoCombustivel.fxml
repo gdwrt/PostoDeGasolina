@@ -41,7 +41,7 @@
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                      <image>
-                        <Image url="@../../../../../../../Desktop/add-file-xxl.png" />
+                        <Image url="@../img/TelaVenda/add-file-xxl.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -64,7 +64,7 @@
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../Desktop/828109_delete_512x512.png" />
+                        <Image url="@../img/TelaVenda/delete.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -73,7 +73,7 @@
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                      <image>
-                        <Image url="@../../../../../../../Desktop/save-512.png" />
+                        <Image url="@../img/TelaVenda/save-512.png" />
                      </image>
                   </ImageView>
                </graphic>

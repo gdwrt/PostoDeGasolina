@@ -221,7 +221,7 @@ public class TelaGerenciarFuncionariosController implements Initializable {
 					.split("/");
 			idFuncionario = Integer.parseInt(ids[0]);
 			try {
-				sqlFuncionario.Remover(idFuncionario);
+				sqlFuncionario.remover(idFuncionario);
 				carregarTabela();
 				limparCampos();
 

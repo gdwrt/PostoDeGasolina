@@ -16,7 +16,7 @@ import com.postoGasolina.model.Telefone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ClienteJuridicaDao implements IMetodos {
+public class ClienteJuridicaDao implements InterfaceDao<Cliente_juridica> {
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -29,13 +29,8 @@ public class ClienteJuridicaDao implements IMetodos {
 	private int id_cliente_fisica = 0; 
 
 	@Override
-	public void cadastrar(Object objeto) throws ClassNotFoundException, SQLException {
+	public void cadastrar(Cliente_juridica clienteJuridica) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// Prepara a conexão
-		if (objeto instanceof Cliente_juridica) {
-
-			Cliente_juridica clienteJuridica = (Cliente_juridica) objeto; 
-
 			// prepara conexão
 			connection = ConexaoUtil.getInstance().getConnection();
 
@@ -98,21 +93,12 @@ public class ClienteJuridicaDao implements IMetodos {
 			statement.close();
 			connection.close();
 			rs.close();
-
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente fisíco");
-		}
-
 	}
 
 	@Override
-	public void alterar(Object objeto) throws SQLException, ClassNotFoundException {
+	public void alterar(Cliente_juridica clienteJuridica) throws SQLException, ClassNotFoundException {
 
-		if (objeto instanceof Cliente_juridica) {
 			connection = ConexaoUtil.getInstance().getConnection();
-
-			Cliente_juridica clienteJuridica = (Cliente_juridica) objeto; 
-
 
 			// Endereco
 			sql = "update tb_endereco set cep=?, endereco=?, numero=?, complemento=?, bairro=?, uf=?, cidade=? where id_endereco=?";
@@ -150,14 +136,10 @@ public class ClienteJuridicaDao implements IMetodos {
 			connection.close();
 			// rs.close();
 
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente físico");
-		}
-
 	}
 
 	@Override
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 

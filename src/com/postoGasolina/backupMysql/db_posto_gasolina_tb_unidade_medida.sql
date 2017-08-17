@@ -26,7 +26,7 @@ CREATE TABLE `tb_unidade_medida` (
   `id_unidade_medida` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_unidade_medida`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,6 @@ CREATE TABLE `tb_unidade_medida` (
 
 LOCK TABLES `tb_unidade_medida` WRITE;
 /*!40000 ALTER TABLE `tb_unidade_medida` DISABLE KEYS */;
-INSERT INTO `tb_unidade_medida` VALUES (11,'LT'),(12,'VL'),(13,'sadad'),(14,'Outros'),(15,'Não possui'),(16,'xzvhxzv');
 /*!40000 ALTER TABLE `tb_unidade_medida` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:15
+-- Dump completed on 2017-08-17 12:09:37

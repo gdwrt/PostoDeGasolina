@@ -213,7 +213,7 @@ public class TelaGerenciarClienteController implements Initializable {
 					.split("/");
 			idCliente = Integer.parseInt(ids[0]);
 			try {
-				a.Remover(idCliente);
+				a.remover(idCliente);
 				carregarTabela();
 				limparCampos();
 				

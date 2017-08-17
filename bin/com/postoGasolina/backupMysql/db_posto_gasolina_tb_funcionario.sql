@@ -36,10 +36,10 @@ CREATE TABLE `tb_funcionario` (
   KEY `fk_tb_funcionario_tb_cargo1_idx` (`id_cargo_fk`),
   KEY `fk_tb_funcionario_tb_pessoa1_idx` (`id_pessoa_fk`),
   KEY `fk_tb_funcionario_tb_endereco1_idx` (`id_endereco_fk`),
-  CONSTRAINT `fk_tb_funcionario_tb_cargo1` FOREIGN KEY (`id_cargo_fk`) REFERENCES `tb_cargo` (`id_cargo`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `fk_tb_funcionario_tb_cargo1` FOREIGN KEY (`id_cargo_fk`) REFERENCES `tb_cargo` (`id_cargo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_funcionario_tb_endereco1` FOREIGN KEY (`id_endereco_fk`) REFERENCES `tb_endereco` (`id_endereco`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_tb_funcionario_tb_pessoa1` FOREIGN KEY (`id_pessoa_fk`) REFERENCES `tb_pessoa` (`id_pessoa`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,6 @@ CREATE TABLE `tb_funcionario` (
 
 LOCK TABLES `tb_funcionario` WRITE;
 /*!40000 ALTER TABLE `tb_funcionario` DISABLE KEYS */;
-INSERT INTO `tb_funcionario` VALUES (7,11,11,11,'Ativo','dskjalskjdklajdlka','2017-06-28',NULL,'');
 /*!40000 ALTER TABLE `tb_funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:15
+-- Dump completed on 2017-08-17 12:09:37

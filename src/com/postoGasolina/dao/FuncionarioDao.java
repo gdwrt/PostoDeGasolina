@@ -17,7 +17,7 @@ import com.postoGasolina.model.Telefone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class FuncionarioDao implements IMetodos {
+public class FuncionarioDao implements InterfaceDao<Funcionario> {
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -28,12 +28,9 @@ public class FuncionarioDao implements IMetodos {
 	private int id_funcionario = 0;
 
 	@Override
-	public void cadastrar(Object objeto) throws ClassNotFoundException, SQLException {
+	public void cadastrar(Funcionario funcionario) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// Prepara a conexão
-		if (objeto instanceof Funcionario) {
 
-			Funcionario funcionario = (Funcionario) objeto;
 
 			// prepara conexão
 			connection = ConexaoUtil.getInstance().getConnection();
@@ -114,20 +111,12 @@ public class FuncionarioDao implements IMetodos {
 			statement.close();
 			connection.close();
 			rs.close();
-
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um funcionario");
-		}
-
 	}
 
 	@Override
-	public void alterar(Object objeto) throws SQLException, ClassNotFoundException {
+	public void alterar(Funcionario funcionario) throws SQLException, ClassNotFoundException {
 
-		if (objeto instanceof Funcionario) {
 			connection = ConexaoUtil.getInstance().getConnection();
-
-			Funcionario funcionario = (Funcionario) objeto;
 
 			// Pessoa
 			sql = "update tb_pessoa set nome=?, data_nascimento=?, sexo=?, estado_civil=?, rg=?, cpf=? where id_pessoa=?";
@@ -177,14 +166,10 @@ public class FuncionarioDao implements IMetodos {
 			connection.close();
 			// rs.close();
 
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um funcionario");
-		}
-
 	}
 
 	@Override
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 		

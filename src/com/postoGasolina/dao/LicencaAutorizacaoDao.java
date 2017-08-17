@@ -21,7 +21,7 @@ import com.postoGasolina.model.validacoes.Data;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class LicencaAutorizacaoDao {
+public class LicencaAutorizacaoDao implements InterfaceDao<Licença_autorizacao>{
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -83,7 +83,7 @@ public class LicencaAutorizacaoDao {
 
 	}
 
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 

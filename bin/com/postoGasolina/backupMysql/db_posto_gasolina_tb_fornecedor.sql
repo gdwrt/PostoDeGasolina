@@ -36,7 +36,7 @@ CREATE TABLE `tb_fornecedor` (
   PRIMARY KEY (`id_fornecedor`),
   KEY `fk_tb_fornecedor_tb_endereco1_idx` (`id_endereco_fk`),
   CONSTRAINT `fk_tb_fornecedor_tb_endereco1` FOREIGN KEY (`id_endereco_fk`) REFERENCES `tb_endereco` (`id_endereco`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,6 @@ CREATE TABLE `tb_fornecedor` (
 
 LOCK TABLES `tb_fornecedor` WRITE;
 /*!40000 ALTER TABLE `tb_fornecedor` DISABLE KEYS */;
-INSERT INTO `tb_fornecedor` VALUES (5,37,'asdadasdas','07.784.255/0001-31','','aratuelas@uol.com.br','','ATIVA','Comércio atacadista de ferragens e ferramentas','2005-12-12');
 /*!40000 ALTER TABLE `tb_fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:16
+-- Dump completed on 2017-08-17 12:09:38

@@ -29,7 +29,7 @@ CREATE TABLE `tb_telefone_orgao` (
   PRIMARY KEY (`id_telefone`,`id_orgao_fk`,`telefone`),
   KEY `fk_tb_telefone_orgao_tb_orgao1_idx` (`id_orgao_fk`),
   CONSTRAINT `fk_tb_telefone_orgao_tb_orgao1` FOREIGN KEY (`id_orgao_fk`) REFERENCES `tb_orgao` (`id_orgao`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `tb_telefone_orgao` (
 
 LOCK TABLES `tb_telefone_orgao` WRITE;
 /*!40000 ALTER TABLE `tb_telefone_orgao` DISABLE KEYS */;
-INSERT INTO `tb_telefone_orgao` VALUES (9,11,' (41) 3643-5283');
 /*!40000 ALTER TABLE `tb_telefone_orgao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:18
+-- Dump completed on 2017-08-17 12:09:39

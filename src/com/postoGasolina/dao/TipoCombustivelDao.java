@@ -10,8 +10,9 @@ import com.postoGasolina.model.Unidade_medida;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sun.security.timestamp.Timestamper;
 
-public class TipoCombustivelDao {
+public class TipoCombustivelDao implements InterfaceDao<Tipo_combustivel>{
 	
 	private Connection connetion;
 	private PreparedStatement statement;
@@ -63,7 +64,7 @@ public class TipoCombustivelDao {
 		
 		
 	}
-	public void excluir(int id) throws ClassNotFoundException, SQLException{
+	public void remover(int id) throws ClassNotFoundException, SQLException{
 		connetion = ConexaoUtil.getInstance().getConnection();
 		
 		sql = "delete from tb_tipo_combustivel where id_tipo_combustivel=?";

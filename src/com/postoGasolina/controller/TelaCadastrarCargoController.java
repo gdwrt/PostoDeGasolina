@@ -79,7 +79,7 @@ public class TelaCadastrarCargoController implements Initializable{
 				
 				if(listViewCargo.getSelectionModel().getSelectedIndex() != -1){
 					int id = listViewCargo.getSelectionModel().getSelectedItem().getId_cargo();
-					sqlCargo.excluir(id);
+					sqlCargo.remover(id);
 					carregarLista();
 					limparCampo();		
 					

@@ -31,7 +31,7 @@ CREATE TABLE `tb_pessoa` (
   `rg` varchar(14) DEFAULT NULL,
   `cpf` varchar(14) DEFAULT NULL,
   PRIMARY KEY (`id_pessoa`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,6 @@ CREATE TABLE `tb_pessoa` (
 
 LOCK TABLES `tb_pessoa` WRITE;
 /*!40000 ALTER TABLE `tb_pessoa` DISABLE KEYS */;
-INSERT INTO `tb_pessoa` VALUES (11,'Geovani Dias Santana','2017-06-16','M','Casado','66.666.666-6','555.555.555-55'),(12,'Geovani dias santana','2017-06-15','M','Solteiro','44.444.444-4','666.666.666-66'),(13,'Matheus dalenga','1998-01-09','M','Solteiro','12.982.142-6','126.666.661-51'),(14,'Joao Santana Aa','2017-06-02','M','Solteiro','65.656.565-5','565.656.565-66');
 /*!40000 ALTER TABLE `tb_pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:18
+-- Dump completed on 2017-08-17 12:09:39

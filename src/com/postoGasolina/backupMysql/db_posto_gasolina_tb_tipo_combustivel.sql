@@ -32,7 +32,7 @@ CREATE TABLE `tb_tipo_combustivel` (
   PRIMARY KEY (`id_tipo_combustivel`),
   KEY `fk_tb_tipo_combustivel_tb_unidade_medida1_idx` (`id_unidade_medida_fk`),
   CONSTRAINT `fk_tb_tipo_combustivel_tb_unidade_medida1` FOREIGN KEY (`id_unidade_medida_fk`) REFERENCES `tb_unidade_medida` (`id_unidade_medida`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,6 @@ CREATE TABLE `tb_tipo_combustivel` (
 
 LOCK TABLES `tb_tipo_combustivel` WRITE;
 /*!40000 ALTER TABLE `tb_tipo_combustivel` DISABLE KEYS */;
-INSERT INTO `tb_tipo_combustivel` VALUES (12,11,'gasolina comum',5655615,545454,45454545),(13,11,'gasolina aditivada',40,100000,5000);
 /*!40000 ALTER TABLE `tb_tipo_combustivel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:15
+-- Dump completed on 2017-08-17 12:09:37

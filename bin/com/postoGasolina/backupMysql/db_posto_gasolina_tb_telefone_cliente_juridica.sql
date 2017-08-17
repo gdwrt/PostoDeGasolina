@@ -28,8 +28,8 @@ CREATE TABLE `tb_telefone_cliente_juridica` (
   `telefone` varchar(20) NOT NULL,
   PRIMARY KEY (`id_telefone`,`id_cliente_juridica_fk`,`telefone`),
   KEY `fk_tb_telefone_copy1_tb_cliente_juridica1_idx` (`id_cliente_juridica_fk`),
-  CONSTRAINT `fk_tb_telefone_copy1_tb_cliente_juridica1` FOREIGN KEY (`id_cliente_juridica_fk`) REFERENCES `tb_cliente_juridica` (`id_cliente_juridica`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_tb_telefone_copy1_tb_cliente_juridica1` FOREIGN KEY (`id_cliente_juridica_fk`) REFERENCES `tb_cliente_juridica` (`id_cliente_juridica`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `tb_telefone_cliente_juridica` (
 
 LOCK TABLES `tb_telefone_cliente_juridica` WRITE;
 /*!40000 ALTER TABLE `tb_telefone_cliente_juridica` DISABLE KEYS */;
-INSERT INTO `tb_telefone_cliente_juridica` VALUES (3,13,'(33)33333-3333'),(4,13,'(33)33333-3333'),(5,18,' (41) 3643-5283'),(6,18,'(55)55555-5555'),(7,18,'(55)5555-5555');
 /*!40000 ALTER TABLE `tb_telefone_cliente_juridica` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:16
+-- Dump completed on 2017-08-17 12:09:38

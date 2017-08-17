@@ -1,0 +1,664 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema db_posto_gasolina
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema db_posto_gasolina
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `db_posto_gasolina` DEFAULT CHARACTER SET latin1 ;
+USE `db_posto_gasolina` ;
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_bomba`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_bomba` (
+  `id_bomba` INT(11) NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_bomba`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 19
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_bico`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_bico` (
+  `id_bico` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_bomba_fk` INT(11) NOT NULL,
+  `descricao` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_bico`),
+  INDEX `fk_tb_bico_tb_bomba1_idx` (`id_bomba_fk` ASC),
+  CONSTRAINT `fk_tb_bico_tb_bomba1`
+    FOREIGN KEY (`id_bomba_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_bomba` (`id_bomba`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 34
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_cargo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_cargo` (
+  `id_cargo` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_cargo`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 26
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_categoria` (
+  `id_categoria` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 27
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_endereco`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_endereco` (
+  `id_endereco` INT(11) NOT NULL AUTO_INCREMENT,
+  `cep` VARCHAR(9) NULL DEFAULT NULL,
+  `endereco` VARCHAR(150) NULL DEFAULT NULL,
+  `numero` VARCHAR(20) NULL DEFAULT NULL,
+  `complemento` VARCHAR(150) NULL DEFAULT NULL,
+  `bairro` VARCHAR(50) NULL DEFAULT NULL,
+  `uf` VARCHAR(2) NULL DEFAULT NULL,
+  `cidade` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_endereco`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 144
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_pessoa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_pessoa` (
+  `id_pessoa` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  `data_nascimento` DATE NULL DEFAULT NULL,
+  `sexo` VARCHAR(1) NULL DEFAULT NULL,
+  `estado_civil` VARCHAR(15) NULL DEFAULT NULL,
+  `rg` VARCHAR(14) NULL DEFAULT NULL,
+  `cpf` VARCHAR(14) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pessoa`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 64
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_cliente_fisica`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_cliente_fisica` (
+  `id_cliente_fisica` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_pessoa_fk` INT(11) NULL DEFAULT NULL,
+  `id_endereco_fk` INT(11) NULL DEFAULT NULL,
+  `pai` VARCHAR(50) NULL DEFAULT NULL,
+  `mae` VARCHAR(50) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `informacao` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_cliente_fisica`),
+  INDEX `fk_tb_cliente_fisica_tb_pessoa1_idx` (`id_pessoa_fk` ASC),
+  INDEX `fk_tb_cliente_fisica_tb_endereco1_idx` (`id_endereco_fk` ASC),
+  CONSTRAINT `fk_tb_cliente_fisica_tb_endereco1`
+    FOREIGN KEY (`id_endereco_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_endereco` (`id_endereco`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_tb_cliente_fisica_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_pessoa` (`id_pessoa`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 33
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_cliente_juridica`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_cliente_juridica` (
+  `id_cliente_juridica` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_endereco_fk` INT(11) NULL DEFAULT NULL,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  `cnpj` VARCHAR(18) NULL DEFAULT NULL,
+  `ie` VARCHAR(30) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `observacao` VARCHAR(255) NULL DEFAULT NULL,
+  `situacao` VARCHAR(45) NULL DEFAULT NULL,
+  `data_situacao` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id_cliente_juridica`),
+  INDEX `fk_tb_cliente_juridica_tb_endereco1_idx` (`id_endereco_fk` ASC),
+  CONSTRAINT `fk_tb_cliente_juridica_tb_endereco1`
+    FOREIGN KEY (`id_endereco_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_endereco` (`id_endereco`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 32
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_unidade_medida`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_unidade_medida` (
+  `id_unidade_medida` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_unidade_medida`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 32
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_tipo_combustivel`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_tipo_combustivel` (
+  `id_tipo_combustivel` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_unidade_medida_fk` INT(11) NOT NULL,
+  `nome` VARCHAR(155) NULL DEFAULT NULL,
+  `quantidade` DECIMAL(10,0) NULL DEFAULT NULL,
+  `estoque_maximo` DECIMAL(10,0) NULL DEFAULT NULL,
+  `estoque_minimo` DECIMAL(10,0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_combustivel`),
+  INDEX `fk_tb_tipo_combustivel_tb_unidade_medida1_idx` (`id_unidade_medida_fk` ASC),
+  CONSTRAINT `fk_tb_tipo_combustivel_tb_unidade_medida1`
+    FOREIGN KEY (`id_unidade_medida_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_unidade_medida` (`id_unidade_medida`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 28
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_combustivel`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_combustivel` (
+  `id_combustivel` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_tipo_combustivel_fk` INT(11) NOT NULL,
+  `id_bomba_fk` INT(11) NOT NULL,
+  `id_bico_fk` INT(11) NOT NULL,
+  `descricao` VARCHAR(155) NULL DEFAULT NULL,
+  `preco_venda` DECIMAL(10,2) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_combustivel`),
+  INDEX `fk_tb_combustivel_tb_tipo_combustivel1_idx` (`id_tipo_combustivel_fk` ASC),
+  INDEX `fk_tb_combustivel_tb_bomba1_idx` (`id_bomba_fk` ASC),
+  INDEX `fk_tb_combustivel_tb_bico1_idx` (`id_bico_fk` ASC),
+  CONSTRAINT `fk_tb_combustivel_tb_bico1`
+    FOREIGN KEY (`id_bico_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_bico` (`id_bico`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_combustivel_tb_bomba1`
+    FOREIGN KEY (`id_bomba_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_bomba` (`id_bomba`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_combustivel_tb_tipo_combustivel1`
+    FOREIGN KEY (`id_tipo_combustivel_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_tipo_combustivel` (`id_tipo_combustivel`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 26
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_fluxo_caixa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_fluxo_caixa` (
+  `id_fluxo_caixa` INT(11) NOT NULL AUTO_INCREMENT,
+  `saldo_atual` DECIMAL(10,2) NULL DEFAULT NULL,
+  `data_hora_inicial` DATETIME NULL DEFAULT NULL,
+  `saldo_final` DECIMAL(10,2) NULL DEFAULT NULL,
+  `data_hora_final` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id_fluxo_caixa`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 138
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_fornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_fornecedor` (
+  `id_fornecedor` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_endereco_fk` INT(11) NOT NULL,
+  `razao_social` VARCHAR(255) NULL DEFAULT NULL,
+  `cnpj` VARCHAR(18) NULL DEFAULT NULL,
+  `ie` VARCHAR(30) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `site` VARCHAR(100) NULL DEFAULT NULL,
+  `status` VARCHAR(20) NULL DEFAULT NULL,
+  `observacoes` VARCHAR(255) NULL DEFAULT NULL,
+  `data_situacao` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id_fornecedor`),
+  INDEX `fk_tb_fornecedor_tb_endereco1_idx` (`id_endereco_fk` ASC),
+  CONSTRAINT `fk_tb_fornecedor_tb_endereco1`
+    FOREIGN KEY (`id_endereco_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_endereco` (`id_endereco`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 20
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_funcionario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_funcionario` (
+  `id_funcionario` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_pessoa_fk` INT(11) NULL DEFAULT NULL,
+  `id_endereco_fk` INT(11) NULL DEFAULT NULL,
+  `id_cargo_fk` INT(11) NULL DEFAULT NULL,
+  `status` VARCHAR(20) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `data_admissao` DATE NULL DEFAULT NULL,
+  `data_demissao` DATE NULL DEFAULT NULL,
+  `observacao` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_funcionario`),
+  INDEX `fk_tb_funcionario_tb_cargo1_idx` (`id_cargo_fk` ASC),
+  INDEX `fk_tb_funcionario_tb_pessoa1_idx` (`id_pessoa_fk` ASC),
+  INDEX `fk_tb_funcionario_tb_endereco1_idx` (`id_endereco_fk` ASC),
+  CONSTRAINT `fk_tb_funcionario_tb_cargo1`
+    FOREIGN KEY (`id_cargo_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_cargo` (`id_cargo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_funcionario_tb_endereco1`
+    FOREIGN KEY (`id_endereco_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_endereco` (`id_endereco`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_tb_funcionario_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_pessoa` (`id_pessoa`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 32
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_pedido_compra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_pedido_compra` (
+  `id_pedido_compra` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_fornecedor_fk` INT(11) NOT NULL,
+  `id_fluxo_caixa_fk` INT(11) NULL DEFAULT NULL,
+  `nome_responsavel` VARCHAR(155) NULL DEFAULT NULL,
+  `total_pagar` DECIMAL(10,2) NULL DEFAULT NULL,
+  `desconto` DECIMAL(10,2) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pedido_compra`),
+  INDEX `fk_tb_pedido_compra_tb_fluxo_caixa1_idx` (`id_fluxo_caixa_fk` ASC),
+  INDEX `fk_tb_pedido_compra_tb_fornecedor1_idx` (`id_fornecedor_fk` ASC),
+  CONSTRAINT `fk_tb_pedido_compra_tb_fluxo_caixa1`
+    FOREIGN KEY (`id_fluxo_caixa_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_fluxo_caixa` (`id_fluxo_caixa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_pedido_compra_tb_fornecedor1`
+    FOREIGN KEY (`id_fornecedor_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_fornecedor` (`id_fornecedor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_produto` (
+  `id_produto` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_categoria_fk` INT(11) NOT NULL,
+  `id_unidade_medida_fk` INT(11) NOT NULL,
+  `descricao` VARCHAR(155) NULL DEFAULT NULL,
+  `estoque_disponivel` DECIMAL(10,0) NULL DEFAULT NULL,
+  `preco_venda` DECIMAL(10,2) NULL DEFAULT NULL,
+  `estoque_max` DECIMAL(10,0) NULL DEFAULT NULL,
+  `estoque_min` DECIMAL(10,0) NULL DEFAULT NULL,
+  `nao_controlar_estoque` TINYINT(4) NULL DEFAULT NULL,
+  `codigo_produto` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_produto`),
+  INDEX `fk_tb_produto_tb_categoria1_idx` (`id_categoria_fk` ASC),
+  INDEX `fk_tb_produto_tb_unidade_medida1_idx` (`id_unidade_medida_fk` ASC),
+  CONSTRAINT `fk_tb_produto_tb_categoria1`
+    FOREIGN KEY (`id_categoria_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_categoria` (`id_categoria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_produto_tb_unidade_medida1`
+    FOREIGN KEY (`id_unidade_medida_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_unidade_medida` (`id_unidade_medida`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 27
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_item_pedido_compra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_item_pedido_compra` (
+  `id_pedido_compra_fk` INT(11) NOT NULL,
+  `id_produto_fk` INT(11) NULL DEFAULT NULL,
+  `id_combustivel_fk` INT(11) NULL DEFAULT NULL,
+  `tipo_produto` VARCHAR(20) NOT NULL,
+  `preco_unitario` DECIMAL(10,2) NULL DEFAULT NULL,
+  `quantidade` DECIMAL(10,2) NULL DEFAULT NULL,
+  `total` DECIMAL(10,2) NULL DEFAULT NULL,
+  INDEX `fk_tb_item_pedido_compra_tb_pedido_compra1_idx` (`id_pedido_compra_fk` ASC),
+  INDEX `fk_tb_item_pedido_compra_tb_produto1_idx` (`id_produto_fk` ASC),
+  INDEX `fk_combustivel` (`id_combustivel_fk` ASC),
+  CONSTRAINT `fk_combustivel`
+    FOREIGN KEY (`id_combustivel_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_combustivel` (`id_combustivel`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_item_pedido_compra_tb_pedido_compra1`
+    FOREIGN KEY (`id_pedido_compra_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_pedido_compra` (`id_pedido_compra`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_item_pedido_compra_tb_produto1`
+    FOREIGN KEY (`id_produto_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_produto` (`id_produto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_pedido_venda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_pedido_venda` (
+  `id_pedido_venda` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente_fisica_fk` INT(11) NULL DEFAULT NULL,
+  `id_cliente_juridica_fk` INT(11) NULL DEFAULT NULL,
+  `id_funcionario_fk` INT(11) NULL DEFAULT NULL,
+  `id_fluxo_caixa_fk` INT(11) NULL DEFAULT NULL,
+  `total_pagar` DECIMAL(10,2) NULL DEFAULT NULL,
+  `desconto` DECIMAL(10,2) NULL DEFAULT NULL,
+  `forma_pagamento` VARCHAR(15) NULL DEFAULT NULL,
+  `tipo_cliente` VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pedido_venda`),
+  INDEX `fk_tb_pedido_venda_tb_funcionario1_idx` (`id_funcionario_fk` ASC),
+  INDEX `fk_tb_pedido_venda_tb_fluxo_caixa1_idx` (`id_fluxo_caixa_fk` ASC),
+  INDEX `fk_tb_pedido_venda_tb_cliente_fisica1` (`id_cliente_fisica_fk` ASC),
+  INDEX `fk_tb_pedido_venda_tb_cliente_juridica1` (`id_cliente_juridica_fk` ASC),
+  CONSTRAINT `fk_tb_pedido_venda_tb_cliente_fisica1`
+    FOREIGN KEY (`id_cliente_fisica_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_cliente_fisica` (`id_cliente_fisica`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_tb_pedido_venda_tb_cliente_juridica1`
+    FOREIGN KEY (`id_cliente_juridica_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_cliente_juridica` (`id_cliente_juridica`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_tb_pedido_venda_tb_fluxo_caixa1`
+    FOREIGN KEY (`id_fluxo_caixa_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_fluxo_caixa` (`id_fluxo_caixa`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_tb_pedido_venda_tb_funcionario1`
+    FOREIGN KEY (`id_funcionario_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_funcionario` (`id_funcionario`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 117
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_item_pedido_venda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_item_pedido_venda` (
+  `id_pedido_venda_fk` INT(11) NOT NULL,
+  `id_produto_fk` INT(11) NULL DEFAULT NULL,
+  `id_combustivel_fk` INT(11) NULL DEFAULT NULL,
+  `tipo_produto` VARCHAR(20) NOT NULL,
+  `preco_unitario` DECIMAL(10,2) NULL DEFAULT NULL,
+  `quantidade` DECIMAL(10,2) NULL DEFAULT NULL,
+  `total` DECIMAL(10,2) NULL DEFAULT NULL,
+  INDEX `fk_tb_item_pedido_venda_tb_pedido_venda1_idx` (`id_pedido_venda_fk` ASC),
+  INDEX `fk_tb_item_pedido_venda_tb_produto1_idx` (`id_combustivel_fk` ASC),
+  INDEX `fk_tb_item_pedido_venda_tb_produto1` (`id_produto_fk` ASC),
+  CONSTRAINT `fk_tb_item_pedido_venda_tb_combustivel1`
+    FOREIGN KEY (`id_combustivel_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_combustivel` (`id_combustivel`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_item_pedido_venda_tb_pedido_venda1`
+    FOREIGN KEY (`id_pedido_venda_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_pedido_venda` (`id_pedido_venda`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_item_pedido_venda_tb_produto1`
+    FOREIGN KEY (`id_produto_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_produto` (`id_produto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = dec8;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_orgao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_orgao` (
+  `id_orgao` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_endereco_fk` INT(11) NOT NULL,
+  `nome` VARCHAR(155) NULL DEFAULT NULL,
+  `sigla` VARCHAR(10) NULL DEFAULT NULL,
+  `observacao` VARCHAR(255) NULL DEFAULT NULL,
+  `cnpj` VARCHAR(18) NULL DEFAULT NULL,
+  `email` VARCHAR(150) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_orgao`),
+  INDEX `fk_tb_orgao_tb_endereco1_idx` (`id_endereco_fk` ASC),
+  CONSTRAINT `fk_tb_orgao_tb_endereco1`
+    FOREIGN KEY (`id_endereco_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_endereco` (`id_endereco`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 25
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_licenca_autorizacao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_licenca_autorizacao` (
+  `id_licenca_autorizacao` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_orgao_fk` INT(11) NOT NULL,
+  `id_funcionario` INT(11) NOT NULL,
+  `descricao` VARCHAR(155) NULL DEFAULT NULL,
+  `data_inicio` DATE NULL DEFAULT NULL,
+  `data_expiracao` DATE NULL DEFAULT NULL,
+  `status` VARCHAR(20) NULL DEFAULT NULL,
+  `descricao_responsavel_renovacao` VARCHAR(155) NULL DEFAULT NULL,
+  `informacao_adicional` VARCHAR(155) NULL DEFAULT NULL,
+  `arquivo_pdf` VARCHAR(2083) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_licenca_autorizacao`),
+  INDEX `fk_tb_licenca_autorizacao_tb_funcionario1_idx` (`id_funcionario` ASC),
+  INDEX `fk_tb_licenca_autorizacao_tb_orgao1_idx` (`id_orgao_fk` ASC),
+  CONSTRAINT `fk_tb_licenca_autorizacao_tb_funcionario1`
+    FOREIGN KEY (`id_funcionario`)
+    REFERENCES `db_posto_gasolina`.`tb_funcionario` (`id_funcionario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tb_licenca_autorizacao_tb_orgao1`
+    FOREIGN KEY (`id_orgao_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_orgao` (`id_orgao`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_login`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_login` (
+  `id_login` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario_fk` INT(11) NOT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `senha` VARCHAR(45) NULL DEFAULT NULL,
+  `g_autorizacao_licenca` BIT(1) NULL DEFAULT NULL,
+  `g_orgao` BIT(1) NULL DEFAULT NULL,
+  `g_fornecedores` BIT(1) NULL DEFAULT NULL,
+  `g_clientes` BIT(1) NULL DEFAULT NULL,
+  `g_funcionarios` BIT(1) NULL DEFAULT NULL,
+  `g_fidelizacao` BIT(1) NULL DEFAULT NULL,
+  `g_compra_produtos` BIT(1) NULL DEFAULT NULL,
+  `g_venda_produtos` BIT(1) NULL DEFAULT NULL,
+  `g_combustivel` BIT(1) NULL DEFAULT NULL,
+  `g_produtos` BIT(1) NULL DEFAULT NULL,
+  `g_caixa` BIT(1) NULL DEFAULT NULL,
+  `g_permissoes` BIT(1) NULL DEFAULT NULL,
+  `informacao_adicional` VARCHAR(200) NULL DEFAULT NULL,
+  `nivel_acesso` VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_login`),
+  INDEX `fk_tb_login_tb_funcionario_idx` (`id_funcionario_fk` ASC),
+  CONSTRAINT `fk_tb_login_tb_funcionario`
+    FOREIGN KEY (`id_funcionario_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_funcionario` (`id_funcionario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_telefone_cliente_fisica`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_telefone_cliente_fisica` (
+  `id_telefone` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente_fisica_fk` INT(11) NOT NULL,
+  `telefone` VARCHAR(14) NOT NULL,
+  PRIMARY KEY (`id_telefone`, `id_cliente_fisica_fk`, `telefone`),
+  INDEX `fk_tb_telefone_copy1_tb_cliente_fisica1_idx` (`id_cliente_fisica_fk` ASC),
+  CONSTRAINT `fk_tb_telefone_copy1_tb_cliente_fisica1`
+    FOREIGN KEY (`id_cliente_fisica_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_cliente_fisica` (`id_cliente_fisica`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 35
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_telefone_cliente_juridica`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_telefone_cliente_juridica` (
+  `id_telefone` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente_juridica_fk` INT(11) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id_telefone`, `id_cliente_juridica_fk`, `telefone`),
+  INDEX `fk_tb_telefone_copy1_tb_cliente_juridica1_idx` (`id_cliente_juridica_fk` ASC),
+  CONSTRAINT `fk_tb_telefone_copy1_tb_cliente_juridica1`
+    FOREIGN KEY (`id_cliente_juridica_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_cliente_juridica` (`id_cliente_juridica`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 21
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_telefone_fornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_telefone_fornecedor` (
+  `id_telefone` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_fornecedor_fk` INT(11) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id_telefone`, `id_fornecedor_fk`, `telefone`),
+  INDEX `fk_tb_telefone_copy1_tb_fornecedor1_idx` (`id_fornecedor_fk` ASC),
+  CONSTRAINT `fk_tb_telefone_copy1_tb_fornecedor1`
+    FOREIGN KEY (`id_fornecedor_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_fornecedor` (`id_fornecedor`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 16
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_telefone_funcionario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_telefone_funcionario` (
+  `id_telefone` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_funcionario_fk` INT(11) NOT NULL,
+  `telefone` VARCHAR(14) NOT NULL,
+  PRIMARY KEY (`id_telefone`, `telefone`, `id_funcionario_fk`),
+  INDEX `fk_tb_telefone_copy1_tb_funcionario1_idx` (`id_funcionario_fk` ASC),
+  CONSTRAINT `fk_tb_telefone_copy1_tb_funcionario1`
+    FOREIGN KEY (`id_funcionario_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_funcionario` (`id_funcionario`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db_posto_gasolina`.`tb_telefone_orgao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_posto_gasolina`.`tb_telefone_orgao` (
+  `id_telefone` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_orgao_fk` INT(11) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id_telefone`, `id_orgao_fk`, `telefone`),
+  INDEX `fk_tb_telefone_orgao_tb_orgao1_idx` (`id_orgao_fk` ASC),
+  CONSTRAINT `fk_tb_telefone_orgao_tb_orgao1`
+    FOREIGN KEY (`id_orgao_fk`)
+    REFERENCES `db_posto_gasolina`.`tb_orgao` (`id_orgao`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

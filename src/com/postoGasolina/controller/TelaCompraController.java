@@ -241,7 +241,7 @@ public class TelaCompraController implements Initializable {
 			} else {
 				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
 				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Campos obrigatórios não informado", 4000);
+				s.show("Campos obrigatï¿½rios nï¿½o informado", 4000);
 			}
 
 		} catch (Exception e) {
@@ -462,7 +462,7 @@ public class TelaCompraController implements Initializable {
 											.getProduto().getPreco_venda();
 									campoPreco.setNumber(preco);
 									if (comboBoxProduto.getSelectionModel().getSelectedItem().getProduto()
-											.isNão_controlar_estoque()) {
+											.isNao_controlar_estoque()) {
 										campoQuantidade.setEditable(false);
 										campoQuantidade.setText("1");
 										btnAdicionar.setDisable(true);

@@ -12,7 +12,7 @@ import com.postoGasolina.model.Unidade_medida;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ProdutosDao {
+public class ProdutosDao implements InterfaceDao<Produto>{
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -33,7 +33,7 @@ public class ProdutosDao {
 		statement.setBigDecimal(6, produto.getPreco_venda());
 		statement.setBigDecimal(7, produto.getEstoque_max());
 		statement.setBigDecimal(8, produto.getEstoque_min());
-		statement.setBoolean(9, produto.isNão_controlar_estoque());
+		statement.setBoolean(9, produto.isNao_controlar_estoque());
 		
 		
 		statement.execute();
@@ -59,7 +59,7 @@ public class ProdutosDao {
 		statement.setBigDecimal(6, produto.getPreco_venda());
 		statement.setBigDecimal(7, produto.getEstoque_max());
 		statement.setBigDecimal(8, produto.getEstoque_min());
-		statement.setBoolean(9, produto.isNão_controlar_estoque());
+		statement.setBoolean(9, produto.isNao_controlar_estoque());
 		statement.setInt(10, produto.getId_produto());
 		
 		
@@ -70,7 +70,7 @@ public class ProdutosDao {
 	}
 
 
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 	connection = ConexaoUtil.getInstance().getConnection();
 		
 		sql = "delete from tb_produto where id_produto=?";

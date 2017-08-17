@@ -126,7 +126,7 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
 					.split("/");
 			idLogin = Integer.parseInt(ids[0]);
 			try {
-				new PermissoesDao().Remover(idLogin);
+				new PermissoesDao().remover(idLogin);
 				carregarTabela();
 				limparCampos();
 				

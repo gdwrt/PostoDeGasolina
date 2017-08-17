@@ -28,8 +28,8 @@ CREATE TABLE `tb_telefone_fornecedor` (
   `telefone` varchar(20) NOT NULL,
   PRIMARY KEY (`id_telefone`,`id_fornecedor_fk`,`telefone`),
   KEY `fk_tb_telefone_copy1_tb_fornecedor1_idx` (`id_fornecedor_fk`),
-  CONSTRAINT `fk_tb_telefone_copy1_tb_fornecedor1` FOREIGN KEY (`id_fornecedor_fk`) REFERENCES `tb_fornecedor` (`id_fornecedor`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_tb_telefone_copy1_tb_fornecedor1` FOREIGN KEY (`id_fornecedor_fk`) REFERENCES `tb_fornecedor` (`id_fornecedor`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `tb_telefone_fornecedor` (
 
 LOCK TABLES `tb_telefone_fornecedor` WRITE;
 /*!40000 ALTER TABLE `tb_telefone_fornecedor` DISABLE KEYS */;
-INSERT INTO `tb_telefone_fornecedor` VALUES (7,5,' (41) 3643-5283');
 /*!40000 ALTER TABLE `tb_telefone_fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:17
+-- Dump completed on 2017-08-17 12:09:39

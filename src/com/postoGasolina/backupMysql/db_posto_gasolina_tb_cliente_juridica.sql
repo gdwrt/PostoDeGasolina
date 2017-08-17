@@ -35,7 +35,7 @@ CREATE TABLE `tb_cliente_juridica` (
   PRIMARY KEY (`id_cliente_juridica`),
   KEY `fk_tb_cliente_juridica_tb_endereco1_idx` (`id_endereco_fk`),
   CONSTRAINT `fk_tb_cliente_juridica_tb_endereco1` FOREIGN KEY (`id_endereco_fk`) REFERENCES `tb_endereco` (`id_endereco`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,6 @@ CREATE TABLE `tb_cliente_juridica` (
 
 LOCK TABLES `tb_cliente_juridica` WRITE;
 /*!40000 ALTER TABLE `tb_cliente_juridica` DISABLE KEYS */;
-INSERT INTO `tb_cliente_juridica` VALUES (13,27,'STF BRASIL - COMERCIO E SERVICOS LTDA - ME','07.784.255/0001-31','','aratuelas@uol.com.br','Comércio atacadista de ferragens e ferramentas','ATIVA','2005-12-12'),(18,49,'Hahaha','07.784.255/0001-31','','aratuelas@uol.com.br','Comércio atacadista de ferragens e ferramentas\n\n\n\n','ATIVA','2005-12-12');
 /*!40000 ALTER TABLE `tb_cliente_juridica` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:15
+-- Dump completed on 2017-08-17 12:09:37

@@ -97,7 +97,7 @@ public class TelaPrincipalController implements Initializable {
 			createContentMenuGerenciar();
 
 		}));
-		menuData.add(new Pair<String, Runnable>("Caixa", () -> {
+		menuData.add(new Pair<String, Runnable>("Caixas", () -> {
 			// 6 é caixa
 			TelaAbrirCaixaController.AbrirTela.setText("6");
 			carregarTelaGerenciarCaixa();
@@ -108,7 +108,7 @@ public class TelaPrincipalController implements Initializable {
 		menuData.add(new Pair<String, Runnable>("combustíveis", () -> {
 			carregarTelaGerenciarCombustivel();
 		}));
-		menuData.add(new Pair<String, Runnable>("Venda", () -> {
+		menuData.add(new Pair<String, Runnable>("Vendas", () -> {
 			if (Fluxo_caixa.getStatus().equals("Fechado")) {
 				try {
 					borderPaneCenter.setCenter(null);
@@ -124,7 +124,7 @@ public class TelaPrincipalController implements Initializable {
 				carregarTelaVenda();
 			}
 		}));
-		menuData.add(new Pair<String, Runnable>("Compra", () -> {
+		menuData.add(new Pair<String, Runnable>("Compras", () -> {
 
 			if (Fluxo_caixa.getStatus().equals("Fechado")) {
 				try {

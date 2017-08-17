@@ -15,7 +15,7 @@ import com.postoGasolina.model.Telefone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class FornecedoresDao {
+public class FornecedoresDao implements InterfaceDao<Fornecedor>{
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -131,7 +131,7 @@ public class FornecedoresDao {
 
 	}
 
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 		

@@ -14,7 +14,7 @@ import com.postoGasolina.model.Unidade_medida;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CombustiveisDao implements IMetodos {
+public class CombustiveisDao implements InterfaceDao<Combustivel> {
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -28,13 +28,9 @@ public class CombustiveisDao implements IMetodos {
 	private int id_tipoCombustivel;
 
 	@Override
-	public void cadastrar(Object objeto) throws ClassNotFoundException, SQLException {
+	public void cadastrar(Combustivel Combustivel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// Prepara a conexão
-		if (objeto instanceof Combustivel) {
-
-			Combustivel Combustivel = (Combustivel) objeto;
-
+	
 			// prepara conexão
 			connection = ConexaoUtil.getInstance().getConnection();
 
@@ -52,20 +48,10 @@ public class CombustiveisDao implements IMetodos {
 
 			statement.close();
 			connection.close();
-
-
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente fisíco");
-		}
-
 	}
 
 	@Override
-	public void alterar(Object objeto) throws SQLException, ClassNotFoundException {
-
-		if (objeto instanceof Combustivel) {
-
-			Combustivel Combustivel = (Combustivel) objeto;
+	public void alterar(Combustivel Combustivel) throws SQLException, ClassNotFoundException {
 
 			// prepara conexão
 			connection = ConexaoUtil.getInstance().getConnection();
@@ -86,14 +72,10 @@ public class CombustiveisDao implements IMetodos {
 			statement.close();
 			connection.close();
 
-		} else {
-			System.out.println("A classe que você está passando por parâmetro não é um cliente fisíco");
-		}
-
 	}
 
 	@Override
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 

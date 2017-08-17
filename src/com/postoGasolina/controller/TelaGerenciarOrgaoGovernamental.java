@@ -136,7 +136,7 @@ public class TelaGerenciarOrgaoGovernamental implements Initializable {
 			String[] ids = treeTableViewOrgao.getSelectionModel().getSelectedItem().getValue().toString().split("/");
 			idOrgao = Integer.parseInt(ids[0]);
 			try {
-				new OrgaoGovernamentalDao().Remover(idOrgao);
+				new OrgaoGovernamentalDao().remover(idOrgao);
 				carregarTabela();
 				limparCampos();
 

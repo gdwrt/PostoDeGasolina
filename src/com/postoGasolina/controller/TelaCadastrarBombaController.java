@@ -87,7 +87,7 @@ public class TelaCadastrarBombaController implements Initializable {
 		if (treeTableViewBomba.getSelectionModel().getSelectedIndex() != -1) {
 			idBomba = Integer.parseInt(treeTableViewBomba.getSelectionModel().getSelectedItem().getValue().toString());
 			try {
-				new BombaDao().excluir(idBomba);
+				new BombaDao().remover(idBomba);
 				carregarTabela();
 				limparcampos();
 				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);

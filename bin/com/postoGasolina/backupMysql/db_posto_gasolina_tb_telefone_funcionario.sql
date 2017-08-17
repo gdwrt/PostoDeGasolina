@@ -23,11 +23,13 @@ DROP TABLE IF EXISTS `tb_telefone_funcionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_telefone_funcionario` (
+  `id_telefone` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario_fk` int(11) NOT NULL,
-  `telefone` varchar(14) DEFAULT NULL,
+  `telefone` varchar(14) NOT NULL,
+  PRIMARY KEY (`id_telefone`,`telefone`,`id_funcionario_fk`),
   KEY `fk_tb_telefone_copy1_tb_funcionario1_idx` (`id_funcionario_fk`),
-  CONSTRAINT `fk_tb_telefone_copy1_tb_funcionario1` FOREIGN KEY (`id_funcionario_fk`) REFERENCES `tb_funcionario` (`id_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_tb_telefone_copy1_tb_funcionario1` FOREIGN KEY (`id_funcionario_fk`) REFERENCES `tb_funcionario` (`id_funcionario`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:18
+-- Dump completed on 2017-08-17 12:09:39

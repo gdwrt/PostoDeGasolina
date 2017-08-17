@@ -35,7 +35,7 @@ CREATE TABLE `tb_cliente_fisica` (
   KEY `fk_tb_cliente_fisica_tb_endereco1_idx` (`id_endereco_fk`),
   CONSTRAINT `fk_tb_cliente_fisica_tb_endereco1` FOREIGN KEY (`id_endereco_fk`) REFERENCES `tb_endereco` (`id_endereco`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_tb_cliente_fisica_tb_pessoa1` FOREIGN KEY (`id_pessoa_fk`) REFERENCES `tb_pessoa` (`id_pessoa`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,6 @@ CREATE TABLE `tb_cliente_fisica` (
 
 LOCK TABLES `tb_cliente_fisica` WRITE;
 /*!40000 ALTER TABLE `tb_cliente_fisica` DISABLE KEYS */;
-INSERT INTO `tb_cliente_fisica` VALUES (5,12,12,'gustavo','selma','matheusdalenga@hotmail.com','legal'),(6,13,13,'Ivanil Moreira da Luz','Carla Guedes ','guiguedesluz@gmail.com',''),(7,14,28,'','','','');
 /*!40000 ALTER TABLE `tb_cliente_fisica` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 18:58:19
+-- Dump completed on 2017-08-17 12:09:40

@@ -99,7 +99,7 @@ public class TelaCadastrarTipoCombustivelController implements Initializable {
 					.split("/");
 			idTipoCombustivel = Integer.parseInt(ids[0]);
 			try {
-				new TipoCombustivelDao().excluir(idTipoCombustivel);
+				new TipoCombustivelDao().remover(idTipoCombustivel);
 				carregarTabela();
 				limparcampos();
 				

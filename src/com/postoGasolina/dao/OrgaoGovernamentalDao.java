@@ -15,7 +15,7 @@ import com.postoGasolina.model.Telefone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class OrgaoGovernamentalDao {
+public class OrgaoGovernamentalDao implements InterfaceDao<Orgao_governamental>{
 	private Connection connection;
 	private String sql;
 	private PreparedStatement statement;
@@ -123,7 +123,7 @@ public class OrgaoGovernamentalDao {
 
 	}
 
-	public void Remover(int id) throws ClassNotFoundException, SQLException {
+	public void remover(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		connection = ConexaoUtil.getInstance().getConnection();
 

@@ -75,7 +75,7 @@ public class TelaCadastrarUnidadeMedidaController implements Initializable {
 
         		try {
         			int id = listViewUnidadeMedida.getSelectionModel().getSelectedItem().getId_unidade_medida();
-    				new UnidadeMedidaDao().excluir(id);
+    				new UnidadeMedidaDao().remover(id);
     				
     				carregarLista();
     				limparCampo();

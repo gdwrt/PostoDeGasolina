@@ -147,7 +147,7 @@ public class TelaGerenciarFornecedores implements Initializable {
 					.split("/");
 			idFornecedor = Integer.parseInt(ids[0]);
 			try {
-				new FornecedoresDao().Remover(idFornecedor);
+				new FornecedoresDao().remover(idFornecedor);
 				carregarTabela();
 				limparCampos();
 

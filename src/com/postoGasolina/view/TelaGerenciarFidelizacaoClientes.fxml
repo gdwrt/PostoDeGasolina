@@ -84,7 +84,7 @@
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                                  <image>
-                                    <Image url="@../../../../../../../Desktop/save-512.png" />
+                                    <Image url="@../img/TelaVenda/emailico.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -99,7 +99,7 @@
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" x="20.0">
                                  <image>
-                                    <Image url="@../../../../../../../Desktop/save-512.png" />
+                                    <Image url="@../img/TelaVenda/print.png" />
                                  </image>
                               </ImageView>
                            </graphic>

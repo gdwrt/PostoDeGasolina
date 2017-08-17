@@ -35,8 +35,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Main.stage = primaryStage;
-		carregarTelaLogin();
-		//carregarTelaPrincipal();
+		//carregarTelaLogin();
+		carregarTelaPrincipal();
 
 	}
 

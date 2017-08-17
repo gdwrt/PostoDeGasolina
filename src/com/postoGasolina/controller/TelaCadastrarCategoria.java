@@ -71,7 +71,7 @@ public class TelaCadastrarCategoria implements Initializable {
 			if (listViewCategoria.getSelectionModel().getSelectedIndex() != -1) {
 				try {
 					int id = listViewCategoria.getSelectionModel().getSelectedItem().getId_categoria();
-					new CategoriaDao().excluir(id);
+					new CategoriaDao().remover(id);
 
 					carregarLista();
 					limparCampo();

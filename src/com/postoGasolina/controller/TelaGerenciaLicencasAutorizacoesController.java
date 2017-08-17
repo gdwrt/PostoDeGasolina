@@ -138,7 +138,7 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 			String[] ids = treeTableViewOrgao.getSelectionModel().getSelectedItem().getValue().toString().split("/");
 			idLA = Integer.parseInt(ids[0]);
 			try {
-				new LicencaAutorizacaoDao().Remover(idLA);
+				new LicencaAutorizacaoDao().remover(idLA);
 				carregarTabela();
 				limparCampos();
 				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
