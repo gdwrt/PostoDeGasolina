@@ -15,10 +15,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.postoGasolina.controller.TelaGerenciarClienteController.ClienteFisicaClass;
 import com.postoGasolina.dao.BombaDao;
-import com.postoGasolina.dao.CargoDao;
-import com.postoGasolina.dao.ClienteFisicaDao;
 import com.postoGasolina.dao.CombustiveisDao;
 import com.postoGasolina.dao.TipoCombustivelDao;
 import com.postoGasolina.main.Main;
@@ -26,8 +23,7 @@ import com.postoGasolina.model.Bico;
 import com.postoGasolina.model.Bomba;
 import com.postoGasolina.model.Combustivel;
 import com.postoGasolina.model.Tipo_combustivel;
-import com.postoGasolina.model.Unidade_medida;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.NumeroTextField;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -91,6 +87,8 @@ public class TelaGerenciarCombustivelController implements Initializable {
 	private GridPane gridPaneTop;
 
 	private int idCombustivel;
+	
+	private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -110,20 +108,20 @@ public class TelaGerenciarCombustivelController implements Initializable {
 				new CombustiveisDao().remover(idCombustivel);
 				carregarTabela();
 				limparCampos();
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Combustível removido com sucesso", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Combustível removido com sucesso", 4000);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Combustível sendo utilizado", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Combustível sendo utilizado", 4000);
 			}
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona combustível na tabela", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona combustível na tabela", 4000);
 		}
 	}
 
@@ -170,20 +168,20 @@ public class TelaGerenciarCombustivelController implements Initializable {
 						carregarTabela();
 						limparCampos();
 
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Combustível cadastrado com sucesso", 4000);
+						snackBar = new JFXSnackbar(borderPaneTabela);
+				//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Combustível cadastrado com sucesso", 4000);
 
 					} else {
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Bico sendo utilizado", 4000);
+						snackBar = new JFXSnackbar(borderPaneTabela);
+				//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Bico sendo utilizado", 4000);
 					}
 				} else {
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informados", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informados", 4000);
 				}
 
 			} catch (Exception e) {
@@ -232,9 +230,9 @@ public class TelaGerenciarCombustivelController implements Initializable {
 						carregarTabela();
 						limparCampos();
 
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Combustível alterado com sucesso", 4000);
+						snackBar = new JFXSnackbar(borderPaneTabela);
+				//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Combustível alterado com sucesso", 4000);
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -245,15 +243,15 @@ public class TelaGerenciarCombustivelController implements Initializable {
 
 				} else {
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Bico sendo utilizado", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Bico sendo utilizado", 4000);
 				}
 
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Campos obrigatórios não informados", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Campos obrigatórios não informados", 4000); 
 			}
 		}
 	}

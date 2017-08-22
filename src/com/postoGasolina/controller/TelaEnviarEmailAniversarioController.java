@@ -11,12 +11,10 @@ import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.postoGasolina.model.Email;
-import com.sun.media.jfxmediaimpl.platform.Platform;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -44,6 +42,8 @@ public class TelaEnviarEmailAniversarioController implements Initializable{
 
     @FXML
     private BorderPane borderPane;
+    
+    private JFXSnackbar s;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -83,8 +83,8 @@ public class TelaEnviarEmailAniversarioController implements Initializable{
 						if(result == 1){
 							javafx.application.Platform.runLater(() -> {
 								imageAdicionar.setImage(new Image(new File("/com/postoGasolina/img/TelaVenda/Mail.gif").toString()));
-								JFXSnackbar s = new JFXSnackbar(borderPane);
-								String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+								s = new JFXSnackbar(borderPane);
+					//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 								s.show("E-mail enviado com sucesso", 4000);
 							});
 							
@@ -94,8 +94,8 @@ public class TelaEnviarEmailAniversarioController implements Initializable{
 						e.printStackTrace();
 						javafx.application.Platform.runLater(() -> {
 							imageAdicionar.setImage(new Image(new File("/com/postoGasolina/img/TelaVenda/Mail.gif").toString()));
-							JFXSnackbar s = new JFXSnackbar(borderPane);
-							String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+							s = new JFXSnackbar(borderPane);
+				//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 							s.show("Não foi possivel enviar e-mail", 4000);
 						});
 					}
@@ -104,8 +104,8 @@ public class TelaEnviarEmailAniversarioController implements Initializable{
 			}).start();
 		} else {
 			imageAdicionar.setImage(new Image(new File("/com/postoGasolina/img/TelaVenda/Mail.gif").toString()));
-			JFXSnackbar s = new JFXSnackbar(borderPane);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			s = new JFXSnackbar(borderPane);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 			s.show("Campos obrigatórios não informado", 4000);
 		}
 		 

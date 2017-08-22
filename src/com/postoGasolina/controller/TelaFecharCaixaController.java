@@ -6,18 +6,16 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXSnackbar;
-import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import com.postoGasolina.dao.CaixaDao;
 import com.postoGasolina.model.Fluxo_caixa;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.NumeroTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,6 +45,8 @@ public class TelaFecharCaixaController implements Initializable {
 
 	private NumeroTextField campoSaldoFinal = new NumeroTextField(BigDecimal.ZERO,
 			NumberFormat.getCurrencyInstance(new Locale("pt", "BR")));
+	
+	private JFXSnackbar s;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -85,8 +85,8 @@ public class TelaFecharCaixaController implements Initializable {
 				stage.close();
 				//System.out.println(Fluxo_caixa.getData_hora_inicial().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
 			} else {
-				JFXSnackbar s = new JFXSnackbar(gridPaneBottom);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				s = new JFXSnackbar(gridPaneBottom);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 				s.show("Campos Obrigatórios não informado", 4000); 
 			}
 		} catch (Exception e) {

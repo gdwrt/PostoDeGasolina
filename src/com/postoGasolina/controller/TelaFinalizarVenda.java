@@ -11,10 +11,9 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSnackbar;
 import com.postoGasolina.controller.TelaVendaController.RecebePedido;
 import com.postoGasolina.dao.VendaDao;
-import com.postoGasolina.model.Fluxo_caixa;
 import com.postoGasolina.model.Fluxo_caixa2;
 import com.postoGasolina.model.Pedido_venda;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.NumeroTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,6 +50,8 @@ public class TelaFinalizarVenda implements Initializable {
 
 	@FXML
 	private GridPane gridPaneBottom;
+	
+	private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -112,9 +113,9 @@ public class TelaFinalizarVenda implements Initializable {
 			}
 
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPane);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Campos obrigatórios não informado", 4000);
+			snackBar = new JFXSnackbar(borderPane);
+	//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Campos obrigatórios não informado", 4000);
 		}
 	}
 

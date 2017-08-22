@@ -10,8 +10,6 @@ import java.net.URLConnection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import javax.swing.JLabel;
-
 import org.apache.commons.mail.EmailException;
 
 import com.jfoenix.controls.JFXButton;
@@ -22,30 +20,18 @@ import com.postoGasolina.dao.PermissoesDao;
 import com.postoGasolina.main.Main;
 import com.postoGasolina.model.Email;
 import com.postoGasolina.model.Login;
-import com.sun.media.jfxmediaimpl.platform.Platform;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 public class TelaRecuperarSenhaController implements Initializable {
@@ -102,6 +88,8 @@ public class TelaRecuperarSenhaController implements Initializable {
 
 	@FXML
 	private ImageView imgLoad;
+	
+	private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -325,8 +313,8 @@ public class TelaRecuperarSenhaController implements Initializable {
 									String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css")
 											.toExternalForm();
 									javafx.application.Platform.runLater(() -> {
-										JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-										s.show("Senha gerada com sucesso, verifique seu E-mail", 6000);
+										snackBar = new JFXSnackbar(borderPaneCenter);
+										snackBar.show("Senha gerada com sucesso, verifique seu E-mail", 6000);
 										imgLoad.setImage(null);
 
 									});
@@ -334,8 +322,8 @@ public class TelaRecuperarSenhaController implements Initializable {
 									campoEmail.setText("");
 								} else {
 									javafx.application.Platform.runLater(() -> {
-										JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-										s.show("Conexão com a internet indisponível", 6000);
+										snackBar = new JFXSnackbar(borderPaneCenter);
+										snackBar.show("Conexão com a internet indisponível", 6000);
 										imgLoad.setImage(null);
 
 									});
@@ -348,8 +336,8 @@ public class TelaRecuperarSenhaController implements Initializable {
 								String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css")
 										.toExternalForm();
 								javafx.application.Platform.runLater(() -> {
-									JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-									s.show("Não foi possível enviar E-mail", 4000);
+									snackBar = new JFXSnackbar(borderPaneCenter);
+									snackBar.show("Não foi possível enviar E-mail", 4000);
 									imgLoad.setImage(null);
 								});
 							} catch (ClassNotFoundException e) {
@@ -359,16 +347,16 @@ public class TelaRecuperarSenhaController implements Initializable {
 								String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css")
 										.toExternalForm();
 								javafx.application.Platform.runLater(() -> {
-									JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-									s.show("Não foi possível enviar E-mail", 4000);
+									snackBar = new JFXSnackbar(borderPaneCenter);
+									snackBar.show("Não foi possível enviar E-mail", 4000);
 									imgLoad.setImage(null);
 								});
 							} catch (SQLException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 								javafx.application.Platform.runLater(() -> {
-									JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-									s.show("Não foi possível enviar E-mail", 4000);
+									snackBar = new JFXSnackbar(borderPaneCenter);
+									snackBar.show("Não foi possível enviar E-mail", 4000);
 									imgLoad.setImage(null);
 								});
 							}
@@ -378,8 +366,8 @@ public class TelaRecuperarSenhaController implements Initializable {
 							String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css")
 									.toExternalForm();
 							javafx.application.Platform.runLater(() -> {
-								JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-								s.show("E-mail inválido", 4000);
+								snackBar = new JFXSnackbar(borderPaneCenter);
+								snackBar.show("E-mail inválido", 4000);
 								imgLoad.setImage(null);
 							});
 
@@ -390,8 +378,8 @@ public class TelaRecuperarSenhaController implements Initializable {
 
 						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 						javafx.application.Platform.runLater(() -> {
-							JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-							s.show("Não foi possível enviar E-mail", 4000);
+							snackBar = new JFXSnackbar(borderPaneCenter);
+							snackBar.show("Não foi possível enviar E-mail", 4000);
 							imgLoad.setImage(null);
 						});
 					} catch (SQLException e) {
@@ -400,19 +388,19 @@ public class TelaRecuperarSenhaController implements Initializable {
 
 						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 						javafx.application.Platform.runLater(() -> {
-							JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-							s.show("Não foi possível enviar E-mail", 4000);
+							snackBar = new JFXSnackbar(borderPaneCenter);
+							snackBar.show("Não foi possível enviar E-mail", 4000);
 							imgLoad.setImage(null);
 						});
 					}
 
-				}
+				} 
 			}).start();
 
 		} else {
 			imgLoad.setImage(null);
-			JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-			s.show("Informa E-mail", 4000);
+			snackBar = new JFXSnackbar(borderPaneCenter);
+			snackBar.show("Informa E-mail", 4000);
 		}
 	}
 

@@ -33,6 +33,8 @@ public class TelaCadastrarCargoController implements Initializable{
     
     @FXML
     private BorderPane borderPane;
+    
+    private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -53,13 +55,13 @@ public class TelaCadastrarCargoController implements Initializable{
 					carregarLista();
 					limparCampo();
 					
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Cargo cadastrado com sucesso", 4000); 
+					snackBar = new JFXSnackbar(borderPane);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Cargo cadastrado com sucesso", 4000); 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000); 
+					snackBar = new JFXSnackbar(borderPane);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informado", 4000); 
 				}
 				
 				
@@ -83,27 +85,27 @@ public class TelaCadastrarCargoController implements Initializable{
 					carregarLista();
 					limparCampo();		
 					
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Cargo removido com sucesso", 4000); 
+					snackBar = new JFXSnackbar(borderPane);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Cargo removido com sucesso", 4000); 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Seleciona cargo na tabela", 4000); 
+					snackBar = new JFXSnackbar(borderPane);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Seleciona cargo na tabela", 4000); 
 				}
 				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JFXSnackbar s = new JFXSnackbar(borderPane);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Cargo sendo utilizado", 4000);
+				snackBar = new JFXSnackbar(borderPane);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Cargo sendo utilizado", 4000);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JFXSnackbar s = new JFXSnackbar(borderPane);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Cargo sendo utilizado", 4000);
+				snackBar = new JFXSnackbar(borderPane);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Cargo sendo utilizado", 4000);
 			}
     	});
     	

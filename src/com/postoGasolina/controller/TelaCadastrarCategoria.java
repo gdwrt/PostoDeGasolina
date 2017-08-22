@@ -8,9 +8,6 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import com.postoGasolina.dao.CategoriaDao;
-import com.postoGasolina.dao.CategoriaDao;
-import com.postoGasolina.model.Cargo;
-import com.postoGasolina.model.Categoria;
 import com.postoGasolina.model.Categoria;
 
 import javafx.fxml.FXML;
@@ -33,6 +30,8 @@ public class TelaCadastrarCategoria implements Initializable {
 	private ImageView btnRemoverCategoria;
 	@FXML
 	private BorderPane borderPane;
+	
+	JFXSnackbar s;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -50,8 +49,8 @@ public class TelaCadastrarCategoria implements Initializable {
 					carregarLista();
 					limparCampo();
 
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					s = new JFXSnackbar(borderPane);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 					s.show("Categoria cadastrada com sucesso", 4000);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -61,8 +60,8 @@ public class TelaCadastrarCategoria implements Initializable {
 					e.printStackTrace();
 				}
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPane);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				s = new JFXSnackbar(borderPane);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 				s.show("Campos obrigatórios não informado", 4000);
 			}
 
@@ -76,25 +75,25 @@ public class TelaCadastrarCategoria implements Initializable {
 					carregarLista();
 					limparCampo();
 
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					s = new JFXSnackbar(borderPane);
+		//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 					s.show("Categoria removida com sucesso", 4000);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-    				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					s = new JFXSnackbar(borderPane);
+    		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
     				s.show("Categoria sendo utilizada", 4000);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					JFXSnackbar s = new JFXSnackbar(borderPane);
-    				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					s = new JFXSnackbar(borderPane);
+    		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
     				s.show("Categoria sendo utilizada", 4000);
 				}
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPane);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				s = new JFXSnackbar(borderPane);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 				s.show("Selecione categoria na tabela", 4000);
 			}
 		});

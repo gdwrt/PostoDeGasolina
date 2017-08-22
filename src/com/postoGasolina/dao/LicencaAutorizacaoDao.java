@@ -16,7 +16,7 @@ import com.postoGasolina.model.Licença_autorizacao;
 import com.postoGasolina.model.Licença_autorizacao;
 import com.postoGasolina.model.Pessoa;
 import com.postoGasolina.model.Telefone;
-import com.postoGasolina.model.validacoes.Data;
+import com.postoGasolina.util.Data;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

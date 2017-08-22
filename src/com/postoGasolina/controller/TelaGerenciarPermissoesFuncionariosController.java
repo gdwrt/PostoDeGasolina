@@ -105,6 +105,8 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
  
     private int idLogin = 0;
     
+    private JFXSnackbar snackBar;
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -130,17 +132,17 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
 				carregarTabela();
 				limparCampos();
 				
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Permissão removido com sucesso", 4000); 
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Permissão removido com sucesso", 4000); 
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona permissão na tabela", 4000); 
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona permissão na tabela", 4000); 
 		}
 	}
 
@@ -172,9 +174,9 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
 						carregarTabela();
 						limparCampos();
 						
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Permissão cadastrado com sucesso", 4000); 
+						snackBar = new JFXSnackbar(borderPaneTabela);
+			//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Permissão cadastrado com sucesso", 4000); 
 						
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
@@ -185,9 +187,9 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
 					}
 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informado", 4000); 
 				}
 
 			} catch (Exception e) {
@@ -218,9 +220,9 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
 					carregarTabela();
 					limparCampos();
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Permissão alterado com sucesso", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Permissão alterado com sucesso", 4000); 
 					
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -233,9 +235,9 @@ public class TelaGerenciarPermissoesFuncionariosController implements Initializa
 				
 
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Campos obrigatórios não informado", 4000); 
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Campos obrigatórios não informado", 4000);  
 			}
 
 		}

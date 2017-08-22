@@ -72,6 +72,8 @@ public class TelaCadastrarBombaController implements Initializable {
 	private JFXTreeTableView<BombaClass> treeTableViewBomba;
 
 	ObservableList<Bico> lista_bico = FXCollections.observableArrayList();
+	
+	private JFXSnackbar snackBar; 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -90,20 +92,20 @@ public class TelaCadastrarBombaController implements Initializable {
 				new BombaDao().remover(idBomba);
 				carregarTabela();
 				limparcampos();
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Bomba removida com sucesso", 4000); 
+				snackBar = new JFXSnackbar(borderPaneTabela);
+				//String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Bomba removida com sucesso", 4000); 
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Bomba sendo utilizada", 4000); 
+				snackBar = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Bomba sendo utilizada", 4000); 
 			}
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona bomba na tabela", 4000); 
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona bomba na tabela", 4000); 
 		}
 
 	}
@@ -125,14 +127,14 @@ public class TelaCadastrarBombaController implements Initializable {
 					carregarTabela();
 					limparcampos();
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Bomba cadastrada com sucesso", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Bomba cadastrada com sucesso", 4000); 
 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informado", 4000); 
 				}
 
 			} catch (Exception e) {
@@ -151,14 +153,14 @@ public class TelaCadastrarBombaController implements Initializable {
 					carregarTabela();
 					limparcampos();
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Bomba alterada com sucesso", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Bomba alterada com sucesso", 4000); 
 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000); 		
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informado", 4000); 		
 					}
 
 			} catch (Exception e) {
@@ -202,13 +204,13 @@ public class TelaCadastrarBombaController implements Initializable {
 				if (!campoBico.getText().isEmpty()) {
 					lista_bico.add(new Bico(0, 0, campoBico.getText()));
 					campoBico.setText("");
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Bico cadastrado com sucesso", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+				//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Bico cadastrado com sucesso", 4000); 
 				} else{
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informado", 4000);
 				}
 
 			} else if (treeTableViewBomba.getSelectionModel().getSelectedIndex() != -1) {
@@ -221,9 +223,9 @@ public class TelaCadastrarBombaController implements Initializable {
 						lista_bico.add(new Bico(0, idBomba, campoBico.getText()));
 						new BombaDao().cadastrarBico(new Bico(0, idBomba, campoBico.getText()));
 						campoBico.setText("");
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Bico cadastrado com sucesso", 4000); 
+						snackBar = new JFXSnackbar(borderPaneTabela);
+			//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Bico cadastrado com sucesso", 4000); 
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -233,9 +235,9 @@ public class TelaCadastrarBombaController implements Initializable {
 					}
 
 				}else{
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigatórios não informado", 4000);
 				}
 			}
 
@@ -251,16 +253,16 @@ public class TelaCadastrarBombaController implements Initializable {
 								lista_bico.remove(i);
 								
 							
-									JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-									String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-									s.show("Bico removido com sucesso", 4000);
+									snackBar = new JFXSnackbar(borderPaneTabela);
+							//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+									snackBar.show("Bico removido com sucesso", 4000);
 								
 							}
 						}
 					}else {
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Seleciona bico na tabela", 4000); 
+						snackBar = new JFXSnackbar(borderPaneTabela);
+			//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Seleciona bico na tabela", 4000); 
 					}
 
 				} else if (treeTableViewBomba.getSelectionModel().getSelectedIndex() != -1) {
@@ -280,26 +282,26 @@ public class TelaCadastrarBombaController implements Initializable {
 									
 								}
 							}
-							JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-							String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-							s.show("Bico removido com sucesso", 4000);
+							snackBar = new JFXSnackbar(borderPaneTabela);
+					//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+							snackBar.show("Bico removido com sucesso", 4000);
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-							JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-							String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-							s.show("Bico sendo utilizada", 4000); 
+							snackBar = new JFXSnackbar(borderPaneTabela);
+				//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+							snackBar.show("Bico sendo utilizada", 4000); 
 						}
 					}else {
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Seleciona bico na tabela", 4000); 
+						snackBar = new JFXSnackbar(borderPaneTabela);
+				//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Seleciona bico na tabela", 4000); 
 					}
 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Seleciona bico na tabela", 4000); 
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Seleciona bico na tabela", 4000); 
 				}
 
 				listViewBico.setItems(lista_bico);

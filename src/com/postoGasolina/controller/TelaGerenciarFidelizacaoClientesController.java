@@ -19,24 +19,14 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.postoGasolina.controller.TelaGerenciarCaixaController.CaixaClass;
 import com.postoGasolina.dao.ClienteFisicaDao;
 import com.postoGasolina.dao.ClienteJuridicaDao;
-import com.postoGasolina.dao.CompraDao;
-import com.postoGasolina.dao.VendaDao;
 import com.postoGasolina.main.Main;
 import com.postoGasolina.model.Cliente_Gasto;
-import com.postoGasolina.model.Fluxo_caixa;
-import com.postoGasolina.model.Item_pedido;
-import com.postoGasolina.model.Pedido_compra;
-import com.postoGasolina.model.Pedido_venda;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.NumeroTextField;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -87,6 +77,8 @@ public class TelaGerenciarFidelizacaoClientesController implements Initializable
 
 	static final JFXTextField nomeCliente = new JFXTextField();
 	static final JFXTextField emailCliente = new JFXTextField();
+	
+	private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -703,22 +695,22 @@ public class TelaGerenciarFidelizacaoClientesController implements Initializable
 					nomeCliente.setText(nome);
 					new Main().carregarTelaGerarCupomDesconto();
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Esse cliente não possui cadastro completo", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+		//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Esse cliente não possui cadastro completo", 4000);
 					
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Esse cliente não possui cadastro completo", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		///		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Esse cliente não possui cadastro completo", 4000);
 			}
 
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona cliente na tabela", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona cliente na tabela", 4000);
 		}
 
 	}
@@ -738,26 +730,26 @@ public class TelaGerenciarFidelizacaoClientesController implements Initializable
 					emailCliente.setText(email);
 					new Main().carregarTelaEnviarEmailAniversario();
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Esse cliente não possui E-mail", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Esse cliente não possui E-mail", 4000);
 				
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Esse cliente não possui E-mail", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Esse cliente não possui E-mail", 4000);
 			
 			}
 
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona o aniversariante na tabela", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona o aniversariante na tabela", 4000);
 		
 		}
 
 	}
 
-}
+} 

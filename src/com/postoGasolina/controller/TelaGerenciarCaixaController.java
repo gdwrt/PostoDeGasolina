@@ -6,16 +6,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -30,7 +27,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTabPane;
-import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -38,16 +34,14 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.postoGasolina.dao.CaixaDao;
 import com.postoGasolina.dao.CompraDao;
-import com.postoGasolina.dao.FuncionarioDao;
 import com.postoGasolina.dao.VendaDao;
 import com.postoGasolina.main.Main;
-import com.postoGasolina.model.ConverterDate;
 import com.postoGasolina.model.Fluxo_caixa;
 import com.postoGasolina.model.Fluxo_caixa2;
 import com.postoGasolina.model.Item_pedido;
 import com.postoGasolina.model.Pedido_compra;
 import com.postoGasolina.model.Pedido_venda;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.NumeroTextField;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -59,24 +53,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.print.JobSettings;
-import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
-import javafx.print.Printer;
-import javafx.print.PrinterJob;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class TelaGerenciarCaixaController implements Initializable {
 
@@ -131,6 +116,8 @@ public class TelaGerenciarCaixaController implements Initializable {
 			NumberFormat.getCurrencyInstance(new Locale("pt", "BR")));
 
 	static final JFXTextField atualizaG = new JFXTextField("0");
+	
+	private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -231,9 +218,9 @@ public class TelaGerenciarCaixaController implements Initializable {
 		if (Fluxo_caixa.getStatus().equals("Fechado")) {
 			new Main().carregarTelaAbrirCaixa();
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Já possui caixa aberto", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Já possui caixa aberto", 4000);
 		
 		}
 	}
@@ -243,9 +230,9 @@ public class TelaGerenciarCaixaController implements Initializable {
 		if (Fluxo_caixa.getStatus().equals("Aberto")) {
 			new Main().carregarTelaFecharCaixa();
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Não possui caixa aberto", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+	//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Não possui caixa aberto", 4000);
 		
 		}
 
@@ -326,9 +313,9 @@ public class TelaGerenciarCaixaController implements Initializable {
 
 			Desktop.getDesktop().open(new File("RelatorioVendas.pdf"));
 			
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Relatório gerado com sucesso", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+	//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Relatório gerado com sucesso", 4000); 
 
 		} catch (Exception e) {
 

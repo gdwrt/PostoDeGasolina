@@ -24,8 +24,8 @@ import com.postoGasolina.model.Fornecedor;
 import com.postoGasolina.model.Item_pedido;
 import com.postoGasolina.model.Pedido_compra;
 import com.postoGasolina.model.Produto_loja;
-import com.postoGasolina.model.validacoes.AutoShowComboBoxHelper;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.AutoShowComboBoxHelper;
+import com.postoGasolina.util.NumeroTextField;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -109,6 +109,8 @@ public class TelaCompraController implements Initializable {
 	private BigDecimal totalCalculado = new BigDecimal("0");
 	
 	static JFXTextField mensagem = new JFXTextField("0");
+	
+	private JFXSnackbar s;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -131,13 +133,13 @@ public class TelaCompraController implements Initializable {
 	}
 
 	@FXML
-	void testando(MouseEvent event) {
+	void mouseEventCompra(MouseEvent event) { 
 		if (!lista_itensPedido.isEmpty()) {
 			campoDesconto.setNumber(RecebePedidoCompra.getDesconto());
 		}
 		if(mensagem.getText().equals("1")){
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			s = new JFXSnackbar(borderPaneTabela);
+			//String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 			s.show("Desconto adicionado com sucesso", 4000);
 			mensagem.setText("0");
 		}
@@ -176,18 +178,18 @@ public class TelaCompraController implements Initializable {
 
 				carregarTotalCompra();
 				
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				s = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 				s.show("Produto adicionado com sucesso", 4000);
 
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				s = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 				s.show("Informa quantidade", 4000);
 			}
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			s = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 			s.show("Seleciona um produto", 4000);
 		}
 
@@ -229,8 +231,8 @@ public class TelaCompraController implements Initializable {
 
 					limparcamposCompleto();
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					s = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 					s.show("Compra registrada com sucesso", 4000);
 
 				} catch (Exception e) {
@@ -239,8 +241,8 @@ public class TelaCompraController implements Initializable {
 				}
 
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				s = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 				s.show("Campos obrigat�rios n�o informado", 4000);
 			}
 
@@ -269,8 +271,8 @@ public class TelaCompraController implements Initializable {
 						carregarTabela();
 						carregarTotalCompra();
 						
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						s = new JFXSnackbar(borderPaneTabela);
+			//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 						s.show("Produto removido com sucesso", 4000);
 						break;
 					}
@@ -280,8 +282,8 @@ public class TelaCompraController implements Initializable {
 			}
 
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			s = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 			s.show("Seleciona produto na tabela", 4000);
 		}
 	}

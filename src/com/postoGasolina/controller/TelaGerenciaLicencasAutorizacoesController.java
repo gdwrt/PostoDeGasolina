@@ -3,8 +3,6 @@ package com.postoGasolina.controller;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -36,7 +34,6 @@ import com.postoGasolina.model.Orgao_governamental;
 import javafx.application.HostServices;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -112,6 +109,8 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 
 	private JFXTreeTableView<LicencaAutorizacaoClass> treeTableViewOrgao;
 	private int idLA;
+	
+	private JFXSnackbar snackBar;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -141,17 +140,17 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 				new LicencaAutorizacaoDao().remover(idLA);
 				carregarTabela();
 				limparCampos();
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Licença/Autorização removido com sucesso", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Licença/Autorização removido com sucesso", 4000);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona Licença/Autorização na tabela", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona Licença/Autorização na tabela", 4000);
 		}
 	}
 
@@ -180,9 +179,9 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 						carregarTabela();
 						limparCampos();
 
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Licença/Autorização cadastrado com sucesso", 4000);
+						snackBar = new JFXSnackbar(borderPaneTabela);
+			//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Licença/Autorização cadastrado com sucesso", 4000);
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -192,9 +191,9 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 					}
 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
+					snackBar = new JFXSnackbar(borderPaneTabela);
 					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigatórios não informado", 4000);
+					snackBar.show("Campos obrigatórios não informado", 4000);
 				}
 
 			} catch (Exception e) {
@@ -221,9 +220,9 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 					carregarTabela();
 					limparCampos();
 
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Licença/Autorização alterado com sucesso", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Licença/Autorização alterado com sucesso", 4000);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -233,9 +232,9 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 				}
 
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
+				snackBar = new JFXSnackbar(borderPaneTabela);
 				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Campos obrigatórios não informado", 4000);
+				snackBar.show("Campos obrigatórios não informado", 4000);
 			}
 
 		}
@@ -454,16 +453,16 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 
 					informacaoArquivo.setText(diretorioArquivo.getName());
 
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Arquivo enviado com sucesso", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Arquivo enviado com sucesso", 4000);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Esse arquivo é inválido", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Esse arquivo é inválido", 4000);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -478,14 +477,14 @@ public class TelaGerenciaLicencasAutorizacoesController implements Initializable
 			HostServices hostServices = new Main().getHostServices();
 			hostServices.showDocument(diretorioArquivo.getPath());
 			
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Arquivo abriu com sucesso", 4000); 
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Arquivo abriu com sucesso", 4000); 
 			
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Não foi possivel abrir arquivo", 4000); 
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Não foi possivel abrir arquivo", 4000); 
 		}
 	}
 

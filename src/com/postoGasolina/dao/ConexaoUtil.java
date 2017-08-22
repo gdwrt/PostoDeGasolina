@@ -19,8 +19,8 @@ public class ConexaoUtil {
 		Class.forName("com.mysql.jdbc.Driver");
 		
 		String url = "jdbc:mysql://localhost/db_posto_gasolina";
-        String usuario = "******";
-        String senha = "****";
+        String usuario = "root";
+        String senha = "";
         Connection con = DriverManager.getConnection(url, usuario, senha);
 		
 		

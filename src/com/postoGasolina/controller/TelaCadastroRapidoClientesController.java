@@ -8,8 +8,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import com.postoGasolina.dao.ClienteFisicaDao;
-import com.postoGasolina.model.validacoes.CPF;
-import com.postoGasolina.model.validacoes.TextFieldFormatter;
+import com.postoGasolina.util.CPF;
+import com.postoGasolina.util.TextFieldFormatter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,6 +36,8 @@ public class TelaCadastroRapidoClientesController implements Initializable {
     private JFXTextField campoCpf;
     @FXML
     private BorderPane borderPane;
+    
+    private JFXSnackbar s;
 
 
 	@Override
@@ -52,8 +54,8 @@ public class TelaCadastroRapidoClientesController implements Initializable {
 				if (campoCpf.getText().length() == 14 && campoCpf.getText().charAt(13) != ' ') {
 					boolean cpf = new CPF(campoCpf.getText()).isCPF();
 					if(!cpf){
-						JFXSnackbar s = new JFXSnackbar(borderPane);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						s = new JFXSnackbar(borderPane);
+		//				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 						s.show("CPF Inválido", 6000);
 						campoCpf.setText(""); 
 					}
@@ -87,8 +89,8 @@ public class TelaCadastroRapidoClientesController implements Initializable {
 			
 			
 		} else {
-		JFXSnackbar s = new JFXSnackbar(borderPane);
-		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+		s = new JFXSnackbar(borderPane);
+	//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
 		s.show("Campos obrigatórios não informado", 4000);
 		}
 	}

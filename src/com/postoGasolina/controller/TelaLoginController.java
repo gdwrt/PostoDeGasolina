@@ -8,8 +8,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import javax.swing.JLabel;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSnackbar;
@@ -20,25 +18,15 @@ import com.postoGasolina.model.Login;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 public class TelaLoginController implements Initializable {
@@ -92,6 +80,8 @@ public class TelaLoginController implements Initializable {
 	
 	@FXML
     private Hyperlink btnRecuperarSenha;
+	
+	private JFXSnackbar snackBar; 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -123,9 +113,9 @@ public class TelaLoginController implements Initializable {
 				TelaPrincipalController.login = login;
 				new Main().carregarTelaPrincipal();
 			} else{
-				JFXSnackbar s = new JFXSnackbar(borderPaneCenter);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("E-mail e/ou senha inválidos", 4000); 
+				snackBar = new JFXSnackbar(borderPaneCenter);
+	//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("E-mail e/ou senha inválidos", 4000); 
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

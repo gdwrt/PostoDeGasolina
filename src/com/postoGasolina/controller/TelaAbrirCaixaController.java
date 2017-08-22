@@ -6,7 +6,6 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -15,13 +14,10 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTimePicker;
 import com.postoGasolina.dao.CaixaDao;
-import com.postoGasolina.main.Main;
 import com.postoGasolina.model.Fluxo_caixa;
-import com.postoGasolina.model.validacoes.NumeroTextField;
+import com.postoGasolina.util.NumeroTextField;
 
-import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -30,7 +26,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class TelaAbrirCaixaController implements Initializable {
 
@@ -53,6 +48,8 @@ public class TelaAbrirCaixaController implements Initializable {
 			NumberFormat.getCurrencyInstance(new Locale("pt", "BR")));
 
 	public final static TextField AbrirTela = new TextField();
+	
+	private JFXSnackbar snackBar; 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -102,9 +99,9 @@ public class TelaAbrirCaixaController implements Initializable {
 			// System.out.println(Fluxo_caixa.getData_hora_inicial().format(DateTimeFormatter.ofPattern("dd/MM/yyyy
 			// HH:mm:ss")));
 		} else {
-			JFXSnackbar s = new JFXSnackbar(gridPaneBottom);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Campos Obrigatórios não informado", 4000); 
+			snackBar = new JFXSnackbar(gridPaneBottom);
+			//String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Campos Obrigatórios não informado", 4000); 
 		}
 	}
 

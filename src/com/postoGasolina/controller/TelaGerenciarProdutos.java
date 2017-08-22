@@ -16,21 +16,15 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.postoGasolina.controller.TelaGerenciarCaixaController.CaixaClass;
 import com.postoGasolina.dao.CategoriaDao;
-import com.postoGasolina.dao.ClienteJuridicaDao;
-import com.postoGasolina.dao.CombustiveisDao;
 import com.postoGasolina.dao.ProdutosDao;
-import com.postoGasolina.dao.TipoCombustivelDao;
 import com.postoGasolina.dao.UnidadeMedidaDao;
 import com.postoGasolina.main.Main;
 import com.postoGasolina.model.Categoria;
-import com.postoGasolina.model.Cliente_juridica;
-import com.postoGasolina.model.Endereco;
 import com.postoGasolina.model.Produto;
 import com.postoGasolina.model.Unidade_medida;
-import com.postoGasolina.model.validacoes.NumeroTextField;
-import com.postoGasolina.model.validacoes.TextFieldFormatter;
+import com.postoGasolina.util.NumeroTextField;
+import com.postoGasolina.util.TextFieldFormatter;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -92,6 +86,8 @@ public class TelaGerenciarProdutos implements Initializable {
 	private JFXTreeTableView<ProdutoClass> treeTableViewProduto;
 
 	private int idProduto;
+	
+	private JFXSnackbar snackBar;
 	
 	@FXML
 	private NumeroTextField campoQuantidade = new NumeroTextField(null);
@@ -214,20 +210,20 @@ public class TelaGerenciarProdutos implements Initializable {
 				carregarTabela();
 				limparcampos();
 				
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Produto removido com sucesso", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Produto removido com sucesso", 4000);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Produto sendo utilizado", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+		//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Produto sendo utilizado", 4000);
 			}
 		} else {
-			JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-			s.show("Seleciona produto na tabela", 4000);
+			snackBar = new JFXSnackbar(borderPaneTabela);
+		//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+			snackBar.show("Seleciona produto na tabela", 4000);
 		}
 	}
 
@@ -263,9 +259,9 @@ public class TelaGerenciarProdutos implements Initializable {
 						carregarTabela();
 						limparcampos();
 						
-						JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-						String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-						s.show("Produto cadastrado com sucesso", 4000);
+						snackBar = new JFXSnackbar(borderPaneTabela);
+			//			String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+						snackBar.show("Produto cadastrado com sucesso", 4000);
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -277,9 +273,9 @@ public class TelaGerenciarProdutos implements Initializable {
 					
 
 				} else {
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Campos obrigat�rios n�o informado", 4000);
+					snackBar = new JFXSnackbar(borderPaneTabela);
+			//		String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+					snackBar.show("Campos obrigat�rios n�o informado", 4000);
 				}
 
 			} catch (Exception e) {
@@ -305,9 +301,9 @@ public class TelaGerenciarProdutos implements Initializable {
 					carregarTabela();
 					limparcampos();
 					
-					JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
+					snackBar = new JFXSnackbar(borderPaneTabela);
 					String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-					s.show("Produto alterado com sucesso", 4000);
+					snackBar.show("Produto alterado com sucesso", 4000);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -316,12 +312,12 @@ public class TelaGerenciarProdutos implements Initializable {
 					e.printStackTrace();
 				}
 
-				
+				 
 
 			} else {
-				JFXSnackbar s = new JFXSnackbar(borderPaneTabela);
-				String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
-				s.show("Campos obrigat�rios n�o informado", 4000);
+				snackBar = new JFXSnackbar(borderPaneTabela);
+			//	String style = getClass().getResource("/com/postoGasolina/style/SnackBar.css").toExternalForm();
+				snackBar.show("Campos obrigat�rios n�o informado", 4000);
 			}
 
 		}

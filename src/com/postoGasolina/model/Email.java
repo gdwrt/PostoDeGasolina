@@ -37,7 +37,7 @@ public class Email {
 		email.setMsg(mensagem);
 		// Autenticando o servidor para enviar msg
 		email.setSSL(true);
-		email.setAuthentication("*************", "**************");
+		email.setAuthentication("****************", "**********");
 		// enviando ..
 		email.send();
 		return 1;
@@ -53,14 +53,14 @@ public class Email {
 		// Email do destinatário
 		email.addTo(emailDestinatario.toLowerCase().replaceAll(" ", ""), nome);
 		// Email do remetente
-		email.setFrom("*************", "Fuel Station Manager (Gerenciador de Postos de Combustíveis) - ");
+		email.setFrom("admin@fsm.com.br", "Fuel Station Manager (Gerenciador de Postos de Combustíveis) - ");
 		// Nome do assunto
 		email.setSubject("Nova senha");
 		// Adicione a mensagem do email
 		email.setMsg("Nova senha gerada com sucesso : "+mensagem);
 		// Autenticando o servidor para enviar msg
 		email.setSSL(true);
-		email.setAuthentication("**********", "**************");
+		email.setAuthentication("****************", "****************");
 		// enviando ..
 		email.send();
 		return 1;
