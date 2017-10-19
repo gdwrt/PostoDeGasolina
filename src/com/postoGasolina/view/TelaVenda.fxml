@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="680.0" minWidth="977.0" onMouseEntered="#testando" prefHeight="680.0" prefWidth="977.0" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaVendaController">
+<BorderPane minHeight="680.0" minWidth="977.0" onMouseEntered="#mouseEventCompra" prefHeight="680.0" prefWidth="977.0" styleClass="fundo2" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.postoGasolina.controller.TelaVendaController">
    <center>
       <BorderPane maxHeight="640.0" maxWidth="940.0" minHeight="640.0" minWidth="940.0" prefHeight="640.0" prefWidth="940.0" style="-fx-background-radius: 10px;" BorderPane.alignment="CENTER">
          <center>
