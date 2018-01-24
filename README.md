@@ -1,8 +1,11 @@
 # PostoDeGasolina
-- FUEL STATION MANAGER (GERENCIADOR DE POSTO DE COMBUSTÍVEIS) + LOJA DE CONVENIÊNCIA - JAVAFX
-
-- Screenshots
-https://geovanidias.carbonmade.com/projects/6544840
+- FUEL STATION MANAGER (GERENCIADOR DE POSTO DE COMBUSTÍVEIS) + JDBC + MVC+ LOJA DE CONVENIÊNCIA - JAVAFX
 
 - DER(Diagrama entidade relacional)
-https://media.cmcdn.net/5d2ba9349ca45371c90c/35013182/1787x1259/quality(70).webp
+https://goo.gl/HhPSe1
+
+- DOCUMENTAÇÃO COMPLETA DO SISTEMA(PROJETO INTEGRADOR 3)
+https://goo.gl/pyWiM7
+
+-   PRODUTO FINAL(Imagens)
+https://goo.gl/UYzYTW
